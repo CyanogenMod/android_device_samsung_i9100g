@@ -1,0 +1,3 @@
+require board=t1
+require version-bootloader=I9100GXXLA1
+require version-baseband=I9100GXXLA1
