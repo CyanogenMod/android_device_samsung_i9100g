@@ -71,10 +71,11 @@ PRODUCT_PACKAGES += \
 	lights.t1 \
 	libtinyalsa \
 	libaudioutils \
-    SamsungServiceMode \
-    Torch \
 	charger \
-	charger_res_images
+	charger_res_images \
+	GalaxyS2Settings \
+	SamsungServiceMode \
+    Torch
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Galaxy S II Einstellungen</string>
+
+    <string name="category_screen_title">Bildschirm</string>
+    <string name="touchscreen_subcat_title">Touchscreen</string>
+    <string name="touchscreen_sensitivity_title_head">Touch Empfindlichkeit</string>
+    <string name="touchscreen_sensitivity_summary_head">Setze Touchscreen Empfindlichkeit</string>
+
+    <string name="category_radio_title">Mobilfunk</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Aktiviere HSDPA/HSUPA</string>
+</resources>
