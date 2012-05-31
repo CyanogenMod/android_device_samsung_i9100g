@@ -222,6 +222,7 @@ on boot
 # Vibetonz
     chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
+    chown system system /sys/vibetonz/pwmvalue
 
 # Change permission for LCD
     chown system radio /sys/class/lcd/panel/lcd_type

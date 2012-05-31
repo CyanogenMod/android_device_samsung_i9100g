@@ -37,6 +37,7 @@ public class DeviceSettings extends FragmentActivity {
     public static final String ACTION_UPDATE_PREFERENCES = "com.cyanogenmod.settings.device.UPDATE";
     public static final String KEY_HSPA = "hspa";
     public static final String KEY_TOUCHSCREEN_SENSITIVITY = "touchscreen_sensitivity";
+    public static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
 
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
@@ -59,6 +60,8 @@ public class DeviceSettings extends FragmentActivity {
                 RadioFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_screen_title),
                 ScreenFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_haptic_title),
+                HapticFragmentActivity.class, null);
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

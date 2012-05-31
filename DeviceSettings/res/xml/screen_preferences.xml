@@ -8,6 +8,6 @@
                 android:summary="@string/touchscreen_sensitivity_summary_head"
                 android:entries="@array/touchscreen_sensitivity_entries"
                 android:entryValues="@array/touchscreen_sensitivity_entries_values"
-                android:defaultValue="50" />
+                android:defaultValue="40" />
     </PreferenceCategory>
 </PreferenceScreen>
