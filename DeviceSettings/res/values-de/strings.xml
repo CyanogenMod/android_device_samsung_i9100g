@@ -9,8 +9,8 @@
 
     <string name="category_haptic_title">Haptik</string>
     <string name="vibrator_subcat_title">Vibrator</string>
-    <string name="vibrator_intensity_title_head">Vibrator Intensity</string>
-    <string name="vibrator_intensity_summary_head">Set vibrator intensity</string>
+    <string name="vibrator_intensity_title_head">Vibrator Intensität</string>
+    <string name="vibrator_intensity_summary_head">Setze Vibrator Intensität</string>
 
     <string name="category_radio_title">Mobilfunk</string>
     <string name="hspa_title_head">HSPA</string>
