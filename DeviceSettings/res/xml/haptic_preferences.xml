@@ -8,6 +8,6 @@
                 android:summary="@string/vibrator_intensity_summary_head"
                 android:entries="@array/vibrator_intensity_entries"
                 android:entryValues="@array/vibrator_intensity_entries_values"
-                android:defaultValue="1463" />
+                android:defaultValue="127" />
     </PreferenceCategory>
 </PreferenceScreen>
