@@ -219,10 +219,11 @@ on boot
     chown system system /sys/devices/platform/omapdss/overlay0/enabled
 #SISO Anuradha change
 
-# Vibetonz
+# Vibrator
     chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
-    chown system system /sys/vibetonz/pwmvalue
+    chown system system /sys/vibrator/pwmvalue
+    chmod 0660 /sys/vibrator/pwmvalue
 
 # Change permission for LCD
     chown system radio /sys/class/lcd/panel/lcd_type
