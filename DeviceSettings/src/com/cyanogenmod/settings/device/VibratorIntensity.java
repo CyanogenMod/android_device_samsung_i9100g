@@ -48,7 +48,7 @@ public class VibratorIntensity extends ListPreference implements OnPreferenceCha
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_VIBRATOR_INTENSITY, "127"));
+        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_VIBRATOR_INTENSITY, "64"));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
