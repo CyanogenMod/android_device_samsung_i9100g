@@ -74,8 +74,7 @@ PRODUCT_PACKAGES += \
 	charger \
 	charger_res_images \
 	GalaxyS2Settings \
-	SamsungServiceMode \
-    Torch
+	SamsungServiceMode
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
