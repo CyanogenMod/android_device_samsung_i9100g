@@ -52,7 +52,6 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
-        String boxValue;
         String key = preference.getKey();
 
         Log.w(TAG, "key: " + key);
