@@ -107,11 +107,6 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9100g/include
 
-# Charging mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
-BOARD_BATTERY_DEVICE_NAME := "battery"
-BOARD_CHARGER_RES := device/samsung/i9100g/res/charger
-
 # assert
 TARGET_OTA_ASSERT_DEVICE := i9100g,GT-I9100G
 

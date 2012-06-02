@@ -6,58 +6,66 @@ on init
     export LD_LIBRARY_PATH /vendor/lib:/system/lib
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
-    export ANDROID_CACHE /cache
-    export SECONDARY_STORAGE /mnt/emmc
-    export EXTERNAL_STORAGE /mnt/sdcard
+    export EXTERNAL_STORAGE /sdcard
 
     symlink /system/etc /etc
-    mkdir /mnt 0775 root system
 
+    mkdir /sdcard
+    mkdir /emmc
     mkdir /system
+    mkdir /data
+    mkdir /cache
+    mkdir /efs
     mkdir /tmp
     mkdir /mnt 0775 root root
     mkdir /mnt/.lfs 0775 root root
+    #mount /tmp /tmp tmpfs   
 
-on fs
-    mount ext4 /dev/block/mmcblk0p9 /system noatime wait ro
+on early-fs
+	mount ext4 /dev/block/mmcblk0p9 /system wait ro
+	mount ext4 /dev/block/mmcblk0p10 /data nosuid nodev noatime wait
 
-# insmod kernel modules
-    insmod /system/lib/modules/j4fs.ko
+	mkdir /data/log 0777
 
-# param.lfs
-    mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs ro
+	chmod 0666 /dev/log/radio
+	chmod 0666 /dev/log/main
+	chmod 0666 /dev/log/event    
 
-    chmod 0666 /dev/log/radio
-    chmod 0666 /dev/log/main
-    chmod 0666 /dev/log/event
+	mount ext4 /dev/block/mmcblk0p10 /data remount ro
+
+	insmod /system/lib/modules/j4fs.ko
+	mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs ro
 
 on boot
 # CPU Frequency Governor
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
+	
+	ifup lo
+	hostname localhost
+	domainname localdomain
 
-    ifup lo
-    hostname localhost
-    domainname localdomain
+	class_start default
 
-    class_start default
+service debuggerd /system/bin/debuggerd
 
 service ueventd /sbin/ueventd
-    class core
     critical
 
 service console /system/bin/sh
-    class core
     console
 
-service adbd /sbin/adbd
-    disabled
-
-service charger /charger
-    class charger
+service playlpm /system/bin/playlpm
     user root
 
-on charger
-    class_start charger
+service immvibed /system/bin/immvibed 
+    oneshot
+
+service lpmkey /system/bin/lpmkey
+    user root
+
+# adbd is controlled by the persist.service.adb.enable system property
+service adbd /sbin/adbd
+    disabled
 
 # Always start adbd on userdebug and eng builds
 # In recovery, always run adbd as root.
