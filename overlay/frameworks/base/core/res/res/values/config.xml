@@ -87,12 +87,12 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Array of output values for keyboard backlight corresponding to the LUX values
@@ -189,7 +189,7 @@
     <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveNotificationLed">false</bool>
+    <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- The default iface on which to monitor data use -->
     <string name="config_datause_iface">pdp0</string>
