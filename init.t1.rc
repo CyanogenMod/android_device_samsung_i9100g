@@ -415,3 +415,35 @@ service TvoutService_C /system/bin/bintvoutservice
      class main
      user system
      group system
+
+# LPM
+on property:ro.bootmode=charger
+    mount ext4 /dev/block/platform/omap/omap_hsmmc.1/by-name/FACTORYFS /system wait
+
+on property:ro.bootmode=charger
+    start pvrsrvinit
+
+on property:ro.bootmode=charger
+    class_start sec_charger
+
+service adbd /sbin/adbd
+    user root
+    disabled
+
+on property:ro.bootmode=charger
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 04e8
+    write /sys/class/android_usb/android0/idProduct 6860
+    write /sys/class/android_usb/android0/functions adb
+    write /sys/class/android_usb/android0/enable 1
+    write /sys/class/android_usb/android0/iManufacturer samsung
+    write /sys/class/android_usb/android0/iProduct GT-I9100G
+    start adbd
+
+service playlpm /system/bin/playlpm
+    class sec_charger
+    user root
+
+service lpmkey /system/bin/lpmkey
+    class sec_charger
+    user root

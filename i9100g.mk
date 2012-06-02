@@ -23,7 +23,6 @@ PRODUCT_LOCALES += hdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
-	device/samsung/i9100g/lpm.rc:root/lpm.rc \
 	device/samsung/i9100g/init.t1.usb.rc:root/init.t1.usb.rc \
 	device/samsung/i9100g/init.t1.rc:root/init.t1.rc \
 	device/samsung/i9100g/ueventd.t1.rc:root/ueventd.t1.rc
