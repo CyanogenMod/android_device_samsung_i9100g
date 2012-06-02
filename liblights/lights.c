@@ -121,20 +121,6 @@ set_light_backlight(struct light_device_t *dev,
 	return err;
 }
 
-static int 
-set_light_buttons(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    return 0;
-}
-
-static int 
-set_light_keyboard(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    return 0;
-}
-
 static int
 set_light_notification(struct light_device_t* dev,
         struct light_state_t const* state)
@@ -151,28 +137,6 @@ set_light_notification(struct light_device_t* dev,
             err = write_int(BUTTON_POWER, 1);
             err = write_int(BUTTON_NOTIFICATION, 1);
         } else{
-            err = write_int(BUTTON_NOTIFICATION, 0);
-        }
-    }
-    pthread_mutex_unlock(&g_lock);
-
-    return err;
-}
-
-static int
-set_light_attention(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    int err = 0;
-    int on = is_lit(state);
-
-    pthread_mutex_lock(&g_lock);
-    LOGD("set_light_attention on=%d\n", on ? 1 : 0);
-    if (g_enable_touchlight == 1) {
-        if (on) {
-            err = write_int(BUTTON_POWER, 1);
-            err = write_int(BUTTON_NOTIFICATION, 1);
-        } else {
             err = write_int(BUTTON_NOTIFICATION, 0);
         }
     }
@@ -198,18 +162,9 @@ int (*set_light)(struct light_device_t* dev,
 
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
         set_light = set_light_backlight;
-    }
-    else if (0 == strcmp(LIGHT_ID_BUTTONS, name)) {
-        set_light = set_light_buttons;
-    }
-    else if (0 == strcmp(LIGHT_ID_KEYBOARD, name)) {
-        set_light = set_light_keyboard;
-    }    
+    }  
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name)) {
         set_light = set_light_notification;
-    }
-    else if (0 == strcmp(LIGHT_ID_ATTENTION, name)) {
-        set_light = set_light_attention;
     }
     else {
         return -EINVAL;
