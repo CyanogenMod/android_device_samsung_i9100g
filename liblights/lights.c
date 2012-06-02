@@ -16,7 +16,7 @@
  */
 
 #define LOG_TAG "lights"
-//#define LOG_NDEBUG 0
+#define LOG_NDEBUG 1
 
 #include <cutils/log.h>
 #include <stdint.h>
@@ -88,11 +88,11 @@ set_light_backlight(struct light_device_t *dev,
 	int brightness = rgb_to_brightness(state);
 
 	pthread_mutex_lock(&g_lock);
+    LOGD("set_light_backlight brightness=%d\n", brightness);
 	err = write_int(LCD_FILE, brightness);
 
-    // FIXME
     err = write_int(BUTTON_POWER, 1);
-    err = write_int(BUTTON_FILE, brightness);
+    err = write_int(BUTTON_FILE, 1);
 
 	pthread_mutex_unlock(&g_lock);
 	return err;
@@ -102,21 +102,14 @@ static int
 set_light_buttons(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-    int err = 0;
-    int on = is_lit(state);
+    return 0;
+}
 
-    pthread_mutex_lock(&g_lock);
-    LOGD("set_light_buttons on=%d\n", on ? 1 : 0);
-    if (on) {
-        err = write_int(BUTTON_POWER, 1);
-        err = write_int(BUTTON_FILE, 255);
-    } else {
-        err = write_int(BUTTON_FILE, 0);
-        err = write_int(BUTTON_POWER, 0);
-    }
-    pthread_mutex_unlock(&g_lock);
-
-    return err;
+static int 
+set_light_keyboard(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    return 0;
 }
 
 static int
@@ -180,6 +173,9 @@ int (*set_light)(struct light_device_t* dev,
     else if (0 == strcmp(LIGHT_ID_BUTTONS, name)) {
         set_light = set_light_buttons;
     }
+    else if (0 == strcmp(LIGHT_ID_KEYBOARD, name)) {
+        set_light = set_light_keyboard;
+    }    
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name)) {
         set_light = set_light_notification;
     }
