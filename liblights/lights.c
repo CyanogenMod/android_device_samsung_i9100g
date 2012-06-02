@@ -16,6 +16,8 @@
  */
 
 #define LOG_TAG "lights"
+//#define LOG_NDEBUG 0
+
 #include <cutils/log.h>
 #include <stdint.h>
 #include <string.h>
@@ -33,6 +35,7 @@ char const *const LCD_FILE = "/sys/class/backlight/pwm-backlight/brightness";
 
 char const *const BUTTON_POWER = "/sys/class/sec/sec_touchkey/enable_disable";
 char const *const BUTTON_FILE = "/sys/class/sec/sec_touchkey/brightness";
+char const *const BUTTON_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
 
 void 
 init_g_lock(void)
@@ -88,7 +91,8 @@ set_light_backlight(struct light_device_t *dev,
 	err = write_int(LCD_FILE, brightness);
 
     // FIXME
-    err = write_int(BUTTON_FILE, brightness > 0 ? 1 : 0);
+    err = write_int(BUTTON_POWER, 1);
+    err = write_int(BUTTON_FILE, brightness);
 
 	pthread_mutex_unlock(&g_lock);
 	return err;
@@ -103,7 +107,13 @@ set_light_buttons(struct light_device_t* dev,
 
     pthread_mutex_lock(&g_lock);
     LOGD("set_light_buttons on=%d\n", on ? 1 : 0);
-    err = write_int(BUTTON_FILE, on ? 1 : 0);
+    if (on) {
+        err = write_int(BUTTON_POWER, 1);
+        err = write_int(BUTTON_FILE, 255);
+    } else {
+        err = write_int(BUTTON_FILE, 0);
+        err = write_int(BUTTON_POWER, 0);
+    }
     pthread_mutex_unlock(&g_lock);
 
     return err;
@@ -118,7 +128,12 @@ set_light_notification(struct light_device_t* dev,
 
     pthread_mutex_lock(&g_lock);
     LOGD("set_light_notification on=%d\n", on ? 1 : 0);
-    err = write_int(BUTTON_FILE, on ? 1 : 0);
+    if (on) {
+        err = write_int(BUTTON_POWER, 1);
+        err = write_int(BUTTON_NOTIFICATION, 1);
+    } else {
+        err = write_int(BUTTON_NOTIFICATION, 0);
+    }
     pthread_mutex_unlock(&g_lock);
 
     return err;
@@ -133,7 +148,12 @@ set_light_attention(struct light_device_t* dev,
 
     pthread_mutex_lock(&g_lock);
     LOGD("set_light_attention on=%d\n", on ? 1 : 0);
-    err = write_int(BUTTON_FILE, on ? 1 : 0);
+    if (on) {
+        err = write_int(BUTTON_POWER, 1);
+        err = write_int(BUTTON_NOTIFICATION, 1);
+    } else {
+        err = write_int(BUTTON_NOTIFICATION, 0);
+    }
     pthread_mutex_unlock(&g_lock);
 
     return err;

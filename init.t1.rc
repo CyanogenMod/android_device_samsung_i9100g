@@ -157,9 +157,24 @@ on boot
 
     chown radio system /sys/class/misc/melfas_touchkey/brightness
     chmod 0660 /sys/class/sec/melfas_touchkey/brightness
-    chown system system /sys/class/sec/sec_touchkey/brightness
-    chmod 0660 /sys/class/sec/sec_touchkey/brightness
+    
+# Change permissions for touchkeys
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_menu
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_back
+    chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update_status
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_brightness
 
+    chown radio system /sys/class/sec/sec_touchkey/enable_disable
+    chmod 0660 /sys/class/sec/sec_touchkey/enable_disable
+    chown radio system /sys/class/sec/sec_touchkey/brightness
+    chmod 0660 /sys/class/sec/sec_touchkey/brightness
+    chown radio system /sys/class/sec/sec_touchkey/notification
+    chmod 0660 /sys/class/sec/sec_touchkey/notification
+    
 # Permissions for dvfs lock
     chown radio system /sys/power/cpufreq_min_limit
     chown radio system /sys/power/cpufreq_max_limit
@@ -171,17 +186,6 @@ on boot
 # Change permission for input devices & GPIO key
     chown radio system /sys/class/sec/sec_key/sec_key_pressed
     chown radio system /sys/class/sec/sec_power_key/sec_power_key_pressed
-
-# Change permission for touchkey
-    chown radio system /sys/class/sec/sec_touchkey/brightness
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_menu
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_back
-    chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update_status
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_brightness
 
 # Change permission for TSP
     chown radio system /sys/class/sec/tsp_noise_test/set_threshold
