@@ -35,6 +35,10 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     private static final String PREF_ENABLED = "1";
     private static final String TAG = "GalaxyS2Parts_General";
 
+    private static final String FILE_TOUCHKEY_LIGHT = "/data/.disable_touchlight";
+    private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/sec/sec_touchkey/brightness";
+    private static final String FILE_TOUCHKEY_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,12 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
         Log.w(TAG, "key: " + key);
 
+        if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
+            Utils.writeValue(FILE_TOUCHKEY_LIGHT, ((CheckBoxPreference)preference).isChecked() ? "1" : "0");
+            Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, ((CheckBoxPreference)preference).isChecked() ? "1" : "0");
+            Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
+        }
+
         return true;
     }
 
@@ -62,5 +72,6 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        Utils.writeValue(FILE_TOUCHKEY_LIGHT, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "1"));
     }
 }

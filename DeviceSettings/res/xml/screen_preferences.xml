@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <PreferenceCategory
                 android:title="@string/touchscreen_subcat_title">
     <com.cyanogenmod.settings.device.TouchscreenSensitivity
@@ -10,4 +11,17 @@
                 android:entryValues="@array/touchscreen_sensitivity_entries_values"
                 android:defaultValue="40" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+                android:title="@string/touchkey_subcat_title">
+    <!-- Touchkey backlight -->
+    <CheckBoxPreference
+                android:key="touchkey_light"
+                android:title="@string/touchkey_light_title_head"
+                android:summaryOff="@string/touchkey_light_summary_off"
+                android:summaryOn="@string/touchkey_light_summary_on"
+                android:defaultValue="true"
+                />
+    </PreferenceCategory>
+
 </PreferenceScreen>

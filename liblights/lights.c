@@ -30,6 +30,7 @@
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
+static int g_enable_touchlight = -1;
 
 char const *const LCD_FILE = "/sys/class/backlight/pwm-backlight/brightness";
 
@@ -41,6 +42,24 @@ void
 init_g_lock(void)
 {
 	pthread_mutex_init(&g_lock, NULL);
+}
+
+void
+load_settings()
+{
+    FILE* fp = fopen("/data/.disable_touchlight", "r");
+    if (!fp) {
+        LOGE("load_settings failed to open /data/.disable_touchlight\n");
+        g_enable_touchlight = 1;
+    } else {
+        g_enable_touchlight = (int)(fgetc(fp));
+        if (g_enable_touchlight == '1')
+            g_enable_touchlight = 1;
+        else
+            g_enable_touchlight = 0;
+
+        fclose(fp);
+    }
 }
 
 static int 
@@ -87,12 +106,16 @@ set_light_backlight(struct light_device_t *dev,
 	int err = 0;
 	int brightness = rgb_to_brightness(state);
 
+    load_settings();
+
 	pthread_mutex_lock(&g_lock);
     LOGD("set_light_backlight brightness=%d\n", brightness);
 	err = write_int(LCD_FILE, brightness);
 
-    err = write_int(BUTTON_POWER, 1);
-    err = write_int(BUTTON_FILE, 1);
+    if (g_enable_touchlight == -1 || g_enable_touchlight > 0) {
+        err = write_int(BUTTON_POWER, 1);
+        err = write_int(BUTTON_FILE, 1);
+    }
 
 	pthread_mutex_unlock(&g_lock);
 	return err;
@@ -119,13 +142,17 @@ set_light_notification(struct light_device_t* dev,
     int err = 0;
     int on = is_lit(state);
 
+    load_settings();
+
     pthread_mutex_lock(&g_lock);
     LOGD("set_light_notification on=%d\n", on ? 1 : 0);
-    if (on) {
-        err = write_int(BUTTON_POWER, 1);
-        err = write_int(BUTTON_NOTIFICATION, 1);
-    } else {
-        err = write_int(BUTTON_NOTIFICATION, 0);
+    if (g_enable_touchlight == 1) {
+        if (on) {
+            err = write_int(BUTTON_POWER, 1);
+            err = write_int(BUTTON_NOTIFICATION, 1);
+        } else{
+            err = write_int(BUTTON_NOTIFICATION, 0);
+        }
     }
     pthread_mutex_unlock(&g_lock);
 
@@ -141,11 +168,13 @@ set_light_attention(struct light_device_t* dev,
 
     pthread_mutex_lock(&g_lock);
     LOGD("set_light_attention on=%d\n", on ? 1 : 0);
-    if (on) {
-        err = write_int(BUTTON_POWER, 1);
-        err = write_int(BUTTON_NOTIFICATION, 1);
-    } else {
-        err = write_int(BUTTON_NOTIFICATION, 0);
+    if (g_enable_touchlight == 1) {
+        if (on) {
+            err = write_int(BUTTON_POWER, 1);
+            err = write_int(BUTTON_NOTIFICATION, 1);
+        } else {
+            err = write_int(BUTTON_NOTIFICATION, 0);
+        }
     }
     pthread_mutex_unlock(&g_lock);
 
