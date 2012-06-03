@@ -35,7 +35,6 @@ static int g_enable_touchlight = -1;
 char const *const LCD_FILE = "/sys/class/backlight/pwm-backlight/brightness";
 
 char const *const BUTTON_POWER = "/sys/class/sec/sec_touchkey/enable_disable";
-char const *const BUTTON_FILE = "/sys/class/sec/sec_touchkey/brightness";
 char const *const BUTTON_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
 
 void 
@@ -115,9 +114,7 @@ set_light_backlight(struct light_device_t *dev,
     if (g_enable_touchlight == -1 || g_enable_touchlight > 0) {
         if (brightness > 0) {
             err = write_int(BUTTON_POWER, 1);
-            err = write_int(BUTTON_FILE, 1);
         } else {
-            err = write_int(BUTTON_FILE, 0);
             err = write_int(BUTTON_POWER, 0);
         }
     }
@@ -137,14 +134,7 @@ set_light_notification(struct light_device_t* dev,
 
     pthread_mutex_lock(&g_lock);
     LOGD("set_light_notification on=%d\n", on ? 1 : 0);
-    if (g_enable_touchlight == 1) {
-        if (on) {
-            err = write_int(BUTTON_POWER, 1);
-            err = write_int(BUTTON_NOTIFICATION, 1);
-        } else{
-            err = write_int(BUTTON_NOTIFICATION, 0);
-        }
-    }
+    err = write_int(BUTTON_NOTIFICATION, on ? 1 : 0);
     pthread_mutex_unlock(&g_lock);
 
     return err;

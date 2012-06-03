@@ -170,11 +170,15 @@ on boot
 
     chown radio system /sys/class/sec/sec_touchkey/enable_disable
     chmod 0660 /sys/class/sec/sec_touchkey/enable_disable
+    chown radio system /sys/class/sec/sec_touchkey/force_disable
+    chmod 0660 /sys/class/sec/sec_touchkey/force_disable
     chown radio system /sys/class/sec/sec_touchkey/brightness
     chmod 0660 /sys/class/sec/sec_touchkey/brightness
     chown radio system /sys/class/sec/sec_touchkey/notification
     chmod 0660 /sys/class/sec/sec_touchkey/notification
-    
+    chown radio system /sys/class/sec/sec_touchkey/timeout
+    chmod 0660 /sys/class/sec/sec_touchkey/timeout
+
 # Permissions for dvfs lock
     chown radio system /sys/power/cpufreq_min_limit
     chown radio system /sys/power/cpufreq_max_limit
