@@ -38,6 +38,7 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     private static final String FILE_TOUCHKEY_LIGHT = "/data/.disable_touchlight";
     private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/sec/sec_touchkey/brightness";
     private static final String FILE_TOUCHKEY_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
+    private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,10 +59,10 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
         if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
             Utils.writeValue(FILE_TOUCHKEY_LIGHT, ((CheckBoxPreference)preference).isChecked() ? "1" : "0");
+            Utils.writeValue(FILE_TOUCHKEY_DISABLE, ((CheckBoxPreference)preference).isChecked() ? "0" : "1");
             Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, ((CheckBoxPreference)preference).isChecked() ? "1" : "0");
             Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
         }
-
         return true;
     }
 
@@ -72,5 +73,6 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         Utils.writeValue(FILE_TOUCHKEY_LIGHT, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "1"));
+        Utils.writeValue(FILE_TOUCHKEY_DISABLE, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "0"));
     }
 }
