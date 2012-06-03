@@ -113,8 +113,13 @@ set_light_backlight(struct light_device_t *dev,
 	err = write_int(LCD_FILE, brightness);
 
     if (g_enable_touchlight == -1 || g_enable_touchlight > 0) {
-        err = write_int(BUTTON_POWER, 1);
-        err = write_int(BUTTON_FILE, 1);
+        if (brightness > 0) {
+            err = write_int(BUTTON_POWER, 1);
+            err = write_int(BUTTON_FILE, 1);
+        } else {
+            err = write_int(BUTTON_FILE, 0);
+            err = write_int(BUTTON_POWER, 0);
+        }
     }
 
 	pthread_mutex_unlock(&g_lock);
