@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Galaxy S II-instellingen</string>
+
+    <string name="category_screen_title">Scherm</string>
+    <string name="touchscreen_subcat_title">Aanraakscherm</string>
+    <string name="touchscreen_sensitivity_title_head">Aanraakgevoeligheid</string>
+    <string name="touchscreen_sensitivity_summary_head">Gevoeligheid aanraakscherm instellen</string>
+
+    <string name="touchkey_subcat_title">Aanraakknoppen</string>
+    <string name="touchkey_light_title_head">Achtergrondverlichting</string>
+    <string name="touchkey_light_summary_off">Achtergrondverlichting uitschakelen</string>
+    <string name="touchkey_light_summary_on">Achtergrondverlichting inschakelen</string>
+    <string name="touchkey_timeout_title_head">Time-out achtergrondverlichting</string>
+    <string name="touchkey_timeout_summary_head">Time-out achtergrondverlichting instellen</string>
+
+    <string name="category_haptic_title">Haptisch</string>
+    <string name="vibrator_subcat_title">Trillen</string>
+    <string name="vibrator_intensity_title_head">Trilintensiteit</string>
+    <string name="vibrator_intensity_summary_head">Trilintensiteit instellen</string>
+
+    <string name="category_radio_title">Radio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">HSDPA/HSUPA inschakelen</string>
+</resources>
