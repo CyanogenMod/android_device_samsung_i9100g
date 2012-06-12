@@ -9,8 +9,8 @@
 
     <string name="touchkey_subcat_title">Touchkeys</string>
     <string name="touchkey_light_title_head">Beleuchtung</string>
-    <string name="touchkey_light_summary_off">Aktiviere Beleuchtung</string>
-    <string name="touchkey_light_summary_on">Deaktiviere Beleuchtung</string> 
+    <string name="touchkey_light_summary_off">Beleuchtung einschalten</string>
+    <string name="touchkey_light_summary_on">Beleuchtung ausschalten </string>
     <string name="touchkey_timeout_title_head">Zeitabschaltung der Beleuchtung</string>
     <string name="touchkey_timeout_summary_head">Setze Zeit für automatische Abschaltung</string>
 
