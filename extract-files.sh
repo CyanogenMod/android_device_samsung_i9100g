@@ -112,7 +112,7 @@ adb pull /system/lib/libtvoutinterface.so ../../../vendor/$MANUFACTURER/$DEVICE/
 adb pull /system/lib/libtvout_jni.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvout_jni.so
 adb pull /system/lib/libtvoutservice.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvoutservice.so
 
-adb pull /system/lib/hw/camera.omap4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.omap4.so
+adb pull /system/lib/hw/vendor-camera.t1.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.t1.so
 adb pull /system/lib/libdomx.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libdomx.so
 adb pull /system/lib/libI420colorconvert.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libI420colorconvert.so
 adb pull /system/lib/libion.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libion.so
@@ -303,7 +303,7 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/libtvoutservice.so:system/lib/libtvoutservice.so
 
 PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/lib/hw/camera.omap4.so:system/lib/hw/camera.omap4.so \\
+    \$(LOCAL_PATH)/proprietary/system/lib/hw/camera.t1.so:system/lib/hw/vendor-camera.t1.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libdomx.so:system/lib/libdomx.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libI420colorconvert.so:system/lib/libI420colorconvert.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \\

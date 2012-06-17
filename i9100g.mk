@@ -67,6 +67,7 @@ PRODUCT_PACKAGES := \
 
 # Packages
 PRODUCT_PACKAGES += \
+	camera.t1 \
 	lights.t1 \
 	audio.a2dp.default \
 	libtinyalsa \
