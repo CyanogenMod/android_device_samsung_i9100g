@@ -68,6 +68,7 @@ PRODUCT_PACKAGES := \
 # Packages
 PRODUCT_PACKAGES += \
 	lights.t1 \
+	audio.a2dp.default \
 	libtinyalsa \
 	libaudioutils \
 	GalaxyS2Settings \
