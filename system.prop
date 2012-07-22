@@ -5,5 +5,3 @@
 rild.libpath=/system/lib/libsec-ril.so
 rild.libargs=-d /dev/ttyS0
 ro.sf.lcd_density=240
-ro.ril.hsxpa=1
-ro.ril.gprsclass=10

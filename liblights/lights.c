@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2012 The Android Open Source Project
  * Copyright (C) 2012 The CyanogenMod Project
+ *                    Daniel Hillenbrand <codeworkx@cyanogenmod.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,67 +31,48 @@
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
-static int g_enable_touchlight = -1;
 
 char const *const LCD_FILE = "/sys/class/backlight/pwm-backlight/brightness";
 
 char const *const BUTTON_POWER = "/sys/class/sec/sec_touchkey/enable_disable";
 char const *const BUTTON_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
 
-void 
-init_g_lock(void)
+void init_g_lock(void)
 {
 	pthread_mutex_init(&g_lock, NULL);
 }
 
-void
-load_settings()
+static int write_int(char const *path, int value)
 {
-    FILE* fp = fopen("/data/.disable_touchlight", "r");
-    if (!fp) {
-        LOGE("load_settings failed to open /data/.disable_touchlight\n");
-        g_enable_touchlight = 1;
-    } else {
-        g_enable_touchlight = (int)(fgetc(fp));
-        if (g_enable_touchlight == '1')
-            g_enable_touchlight = 1;
-        else
-            g_enable_touchlight = 0;
+	int fd;
+	static int already_warned;
 
-        fclose(fp);
-    }
+	already_warned = 0;
+
+	ALOGV("write_int: path %s, value %d", path, value);
+	fd = open(path, O_RDWR);
+
+	if (fd >= 0) {
+		char buffer[20];
+		int bytes = sprintf(buffer, "%d\n", value);
+		int amt = write(fd, buffer, bytes);
+		close(fd);
+		return amt == -1 ? -errno : 0;
+	} else {
+		if (already_warned == 0) {
+			ALOGE("write_int failed to open %s\n", path);
+			already_warned = 1;
+		}
+		return -errno;
+	}
 }
 
-static int 
-write_int(char const *path, int value)
-{
-    int fd;
-    static int already_warned = 0;
-
-    fd = open(path, O_RDWR);
-    if (fd >= 0) {
-        char buffer[20];
-        int bytes = sprintf(buffer, "%d\n", value);
-        int amt = write(fd, buffer, bytes);
-        close(fd);
-        return amt == -1 ? -errno : 0;
-    } else {
-        if (already_warned == 0) {
-            LOGE("write_int failed to open %s\n", path);
-            already_warned = 1;
-        }
-        return -errno;
-    }
-}
-
-static int
-is_lit(struct light_state_t const* state)
+static int is_lit(struct light_state_t const* state)
 {
     return state->color & 0x00ffffff;
 }
 
-static int 
-rgb_to_brightness(struct light_state_t const *state)
+static int rgb_to_brightness(struct light_state_t const *state)
 {
 	int color = state->color & 0x00ffffff;
 
@@ -98,25 +80,20 @@ rgb_to_brightness(struct light_state_t const *state)
 		+ (150*((color>>8) & 0x00ff)) + (29*(color & 0x00ff))) >> 8;
 }
 
-static int 
-set_light_backlight(struct light_device_t *dev,
+static int set_light_backlight(struct light_device_t *dev,
 			struct light_state_t const *state)
 {
 	int err = 0;
 	int brightness = rgb_to_brightness(state);
 
-    load_settings();
-
 	pthread_mutex_lock(&g_lock);
-    LOGD("set_light_backlight brightness=%d\n", brightness);
+    ALOGD("set_light_backlight brightness=%d\n", brightness);
 	err = write_int(LCD_FILE, brightness);
 
-    if (g_enable_touchlight == -1 || g_enable_touchlight > 0) {
-        if (brightness > 0) {
-            err = write_int(BUTTON_POWER, 1);
-        } else {
-            err = write_int(BUTTON_POWER, 0);
-        }
+    if (brightness > 0) {
+        err = write_int(BUTTON_POWER, 1);
+    } else {
+        err = write_int(BUTTON_POWER, 0);
     }
 
 	pthread_mutex_unlock(&g_lock);
@@ -130,10 +107,8 @@ set_light_notification(struct light_device_t* dev,
     int err = 0;
     int on = is_lit(state);
 
-    load_settings();
-
     pthread_mutex_lock(&g_lock);
-    LOGD("set_light_notification on=%d\n", on ? 1 : 0);
+    ALOGD("set_light_notification on=%d\n", on ? 1 : 0);
     err = write_int(BUTTON_NOTIFICATION, on ? 1 : 0);
     pthread_mutex_unlock(&g_lock);
 
@@ -142,7 +117,7 @@ set_light_notification(struct light_device_t* dev,
 
 static int close_lights(struct light_device_t *dev)
 {
-	LOGV("close_light is called");
+	ALOGV("close_light is called");
 	if (dev)
 		free(dev);
 
@@ -152,43 +127,42 @@ static int close_lights(struct light_device_t *dev)
 static int open_lights(const struct hw_module_t *module, char const *name,
 						struct hw_device_t **device)
 {
-int (*set_light)(struct light_device_t* dev,
-            struct light_state_t const* state);
+	int (*set_light)(struct light_device_t *dev,
+		struct light_state_t const *state);
 
-    if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
-        set_light = set_light_backlight;
-    }  
-    else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name)) {
-        set_light = set_light_notification;
-    }
-    else {
-        return -EINVAL;
-    }
+	if (0 == strcmp(LIGHT_ID_BACKLIGHT, name))
+		set_light = set_light_backlight;
+	else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
+		set_light = set_light_notification;
+	else
+		return -EINVAL;
 
-    pthread_once(&g_init, init_g_lock);
+	pthread_once(&g_init, init_g_lock);
 
-    struct light_device_t *dev = malloc(sizeof(struct light_device_t));
-    memset(dev, 0, sizeof(*dev));
+	struct light_device_t *dev = malloc(sizeof(struct light_device_t));
+	memset(dev, 0, sizeof(*dev));
 
-    dev->common.tag = HARDWARE_DEVICE_TAG;
-    dev->common.version = 0;
-    dev->common.module = (struct hw_module_t*)module;
-    dev->common.close = (int (*)(struct hw_device_t*))close_lights;
-    dev->set_light = set_light;
+	dev->common.tag = HARDWARE_DEVICE_TAG;
+	dev->common.version = 0;
+	dev->common.module = (struct hw_module_t *)module;
+	dev->common.close = (int (*)(struct hw_device_t *))close_lights;
+	dev->set_light = set_light;
 
-    *device = (struct hw_device_t*)dev;
-    return 0;}
+	*device = (struct hw_device_t *)dev;
+
+	return 0;
+}
 
 static struct hw_module_methods_t lights_module_methods = {
 	.open =  open_lights,
 };
 
-const struct hw_module_t HAL_MODULE_INFO_SYM = {
+struct hw_module_t HAL_MODULE_INFO_SYM = {
 	.tag = HARDWARE_MODULE_TAG,
 	.version_major = 1,
 	.version_minor = 0,
 	.id = LIGHTS_HARDWARE_MODULE_ID,
-	.name = "T1 Lights Module",
+	.name = "T1 lights Module",
 	.author = "The CyanogenMod Project",
 	.methods = &lights_module_methods,
 };
