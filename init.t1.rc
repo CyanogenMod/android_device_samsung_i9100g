@@ -360,7 +360,7 @@ service hciattach /system/bin/brcm_patchram_plus --enable_hci --no2bytes --enabl
 	disabled
 	oneshot
 
-service pvrsrvinit /vendor/bin/pvrsrvinit
+service pvrsrvctl /vendor/bin/pvrsrvctl --start --no-module
 	class core
 	user root
 	group root
@@ -443,7 +443,7 @@ on property:ro.bootmode=charger
     mount ext4 /dev/block/platform/omap/omap_hsmmc.1/by-name/FACTORYFS /system wait
 
 on property:ro.bootmode=charger
-    start pvrsrvinit
+    start pvrsrvctl
 
 on property:ro.bootmode=charger
     class_start sec_charger

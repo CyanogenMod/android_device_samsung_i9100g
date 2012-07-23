@@ -46,7 +46,6 @@ adb pull /system/etc/wifi/nvram_net.txt_murata ../../../vendor/$MANUFACTURER/$DE
 adb pull /system/etc/wifi/wpa_supplicant.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/wpa_supplicant.conf
 adb pull /system/lib/hw/camera.t1.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.t1.so
 adb pull /system/lib/hw/gps.omap4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gps.omap4.so
-adb pull /system/lib/hw/hwcomposer.t1.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/hwcomposer.t1.so
 adb pull /system/lib/hw/sensors.omap4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/sensors.omap4.so
 adb pull /system/lib/libI420colorconvert.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libI420colorconvert.so
 adb pull /system/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so
@@ -125,7 +124,6 @@ adb pull /system/usr/keylayout/sii9234_rcp.kl ../../../vendor/$MANUFACTURER/$DEV
 adb pull /system/usr/keylayout/t1-gpio-keypad.kl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/usr/keylayout/t1-gpio-keypad.kl
 adb pull /system/usr/keylayout/t1-gpio-keys.kl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/usr/keylayout/t1-gpio-keys.kl
 adb pull /system/vendor/bin/pvrsrvctl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/bin/pvrsrvctl
-adb pull /system/vendor/bin/pvrsrvinit ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/bin/pvrsrvinit
 adb pull /system/vendor/firmware/bcm4330.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/bcm4330.hcd
 adb pull /system/vendor/firmware/ducati-m3.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/ducati-m3.bin
 adb pull /system/vendor/firmware/fw_cypress_t1.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/fw_cypress_t1.bin
@@ -210,7 +208,6 @@ PRODUCT_COPY_FILES += \\
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/hw/camera.t1.so:system/lib/hw/camera.t1.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.t1.so:system/lib/hw/hwcomposer.t1.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libdomx.so:system/lib/libdomx.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libgrallocmapper.so:system/lib/libgrallocmapper.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libI420colorconvert.so:system/lib/libI420colorconvert.so \\
@@ -287,7 +284,7 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl
 
 PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/vendor/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit
+    \$(LOCAL_PATH)/proprietary/system/vendor/bin/pvrsrvctl:system/vendor/bin/pvrsrvctl
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/vendor/firmware/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd \\
