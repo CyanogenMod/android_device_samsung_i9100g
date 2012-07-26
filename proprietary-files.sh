@@ -44,7 +44,7 @@ adb pull /system/etc/wifi/nvram_mfg.txt_murata ../../../vendor/$MANUFACTURER/$DE
 adb pull /system/etc/wifi/nvram_net.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_net.txt
 adb pull /system/etc/wifi/nvram_net.txt_murata ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_net.txt_murata
 adb pull /system/etc/wifi/wpa_supplicant.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/wpa_supplicant.conf
-adb pull /system/lib/hw/camera.t1.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.t1.so
+adb pull /system/lib/hw/vendor-camera.t1.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.t1.so
 adb pull /system/lib/hw/gps.omap4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gps.omap4.so
 adb pull /system/lib/hw/sensors.omap4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/sensors.omap4.so
 adb pull /system/lib/libI420colorconvert.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libI420colorconvert.so
@@ -207,7 +207,7 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/libtvoutservice.so:system/lib/libtvoutservice.so
 
 PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/lib/hw/camera.t1.so:system/lib/hw/camera.t1.so \\
+    \$(LOCAL_PATH)/proprietary/system/lib/hw/camera.t1.so:system/lib/hw/vendor-camera.t1.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libdomx.so:system/lib/libdomx.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libgrallocmapper.so:system/lib/libgrallocmapper.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libI420colorconvert.so:system/lib/libI420colorconvert.so \\
