@@ -68,6 +68,7 @@ PRODUCT_PACKAGES += \
     audio.primary.t1 \
     audio.a2dp.default \
     audio.usb.default \
+    camera.t1 \
     libtinyalsa \
     libaudioutils \
     lights.t1 \
