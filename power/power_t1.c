@@ -104,7 +104,7 @@ static void t1_power_set_interactive(struct power_module *module, int on)
      */
 
     sysfs_write("/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
-                on ? "1200000" : "700000");
+                on ? "1200000" : "600000");
 }
 
 static void t1_power_hint(struct power_module *module, power_hint_t hint,
