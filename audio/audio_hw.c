@@ -926,6 +926,9 @@ static void set_incall_device(struct t1_audio_device *adev)
         case AUDIO_DEVICE_OUT_WIRED_HEADPHONE:
             device_type = SOUND_AUDIO_PATH_HEADPHONE;
             break;
+/*
+ * T1 doesn't need a special path set for bluetooth
+ * 
         case AUDIO_DEVICE_OUT_BLUETOOTH_SCO:
         case AUDIO_DEVICE_OUT_BLUETOOTH_SCO_HEADSET:
         case AUDIO_DEVICE_OUT_BLUETOOTH_SCO_CARKIT:
@@ -934,6 +937,7 @@ static void set_incall_device(struct t1_audio_device *adev)
             else
                 device_type = SOUND_AUDIO_PATH_BLUETOOTH_NO_NR;
             break;
+*/
         default:
             device_type = SOUND_AUDIO_PATH_HANDSET;
             break;
