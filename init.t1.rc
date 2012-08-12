@@ -171,15 +171,13 @@ on boot
     chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
     chown radio system /sys/class/sec/sec_touchkey/touchkey_brightness
 
-    chown radio system /sys/class/sec/sec_touchkey/enable_disable
+    chown system system /sys/class/sec/sec_touchkey/enable_disable
     chmod 0660 /sys/class/sec/sec_touchkey/enable_disable
-    chown radio system /sys/class/sec/sec_touchkey/force_disable
+    chown system system /sys/class/sec/sec_touchkey/force_disable
     chmod 0660 /sys/class/sec/sec_touchkey/force_disable
-    chown radio system /sys/class/sec/sec_touchkey/brightness
-    chmod 0660 /sys/class/sec/sec_touchkey/brightness
-    chown radio system /sys/class/sec/sec_touchkey/notification
+    chown system system /sys/class/sec/sec_touchkey/notification
     chmod 0660 /sys/class/sec/sec_touchkey/notification
-    chown radio system /sys/class/sec/sec_touchkey/timeout
+    chown system system /sys/class/sec/sec_touchkey/timeout
     chmod 0660 /sys/class/sec/sec_touchkey/timeout
 
 # Permissions for dvfs lock

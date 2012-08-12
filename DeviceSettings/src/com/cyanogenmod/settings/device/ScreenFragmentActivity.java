@@ -33,9 +33,8 @@ import com.cyanogenmod.settings.device.R;
 public class ScreenFragmentActivity extends PreferenceFragment {
 
     private static final String PREF_ENABLED = "1";
-    private static final String TAG = "GalaxyS2Settings_General";
+    private static final String TAG = "GalaxyS2Settings_Screen";
 
-    private static final String FILE_TOUCHKEY_LIGHT = "/data/.disable_touchlight";
     private static final String FILE_TOUCHKEY_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
     private static final String FILE_TOUCHKEY_ENABLE_DISABLE = "/sys/class/sec/sec_touchkey/enable_disable";
     private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
@@ -45,8 +44,13 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.screen_preferences);
-
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        if (((CheckBoxPreference)prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_LIGHT)).isChecked()) {
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+        } else {
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+        }
 
     }
 
@@ -58,11 +62,19 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         Log.w(TAG, "key: " + key);
 
         if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
-            Utils.writeValue(FILE_TOUCHKEY_LIGHT, ((CheckBoxPreference)preference).isChecked() ? "1" : "0");
-            Utils.writeValue(FILE_TOUCHKEY_DISABLE, ((CheckBoxPreference)preference).isChecked() ? "0" : "1");
-            Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
-            Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, ((CheckBoxPreference)preference).isChecked() ? "1" : "0");
+            if (((CheckBoxPreference)preference).isChecked()) {
+                Utils.writeValue(FILE_TOUCHKEY_DISABLE, "0");
+                Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
+                Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "1");
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+            } else {
+                Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
+                Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
+                Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "0");
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+            }
         }
+
         return true;
     }
 
@@ -72,21 +84,9 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
 
-        Boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
-        String disabled;
-        String enable_disable;
-
-        if (light == true) {
-            disabled = "0";
-            enable_disable = "1";
-        } else {
-            disabled = "1";
-            enable_disable = "0";
-        }
-
-        Utils.writeValue(FILE_TOUCHKEY_DISABLE, disabled);
-        Utils.writeValue(FILE_TOUCHKEY_LIGHT, enable_disable);
-        Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, enable_disable);
+        Utils.writeValue(FILE_TOUCHKEY_DISABLE, light ? "0" : "1");
+        Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, light ? "1" : "0");
     }
 }
