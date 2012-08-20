@@ -67,6 +67,21 @@ static int write_int(char const *path, int value)
 	}
 }
 
+static int read_int(char const *path)
+{
+    int fd;
+    char buffer[2];
+
+    fd = open(path, O_RDONLY);
+
+    if (fd >= 0) {
+        read(fd, buffer, 1);
+    }
+    close(fd);
+
+    return atoi(buffer);
+}
+
 static int is_lit(struct light_state_t const* state)
 {
     return state->color & 0x00ffffff;
@@ -85,15 +100,14 @@ static int set_light_backlight(struct light_device_t *dev,
 {
 	int err = 0;
 	int brightness = rgb_to_brightness(state);
+    int previous_brightness = read_int(LCD_FILE);
 
 	pthread_mutex_lock(&g_lock);
     ALOGD("set_light_backlight brightness=%d\n", brightness);
 	err = write_int(LCD_FILE, brightness);
 
-    if (brightness > 0) {
-        err = write_int(BUTTON_POWER, 1);
-    } else {
-        err = write_int(BUTTON_POWER, 0);
+    if (!previous_brightness && (brightness > 0)) {
+        err = write_int(BUTTON_POWER, brightness > 0 ? 1 : 0);
     }
 
 	pthread_mutex_unlock(&g_lock);
