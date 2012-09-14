@@ -77,7 +77,8 @@ PRODUCT_PACKAGES += \
     tinycap \
     tinymix \
     GalaxyS2Settings \
-    SamsungServiceMode
+    SamsungServiceMode \
+    Torch
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
