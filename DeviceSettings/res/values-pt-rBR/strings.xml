@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Config. Galaxy S II</string>
+    <string name="category_screen_title">Tela</string>
+    <string name="touchscreen_subcat_title">Tela sensível ao toque</string>
+    <string name="touchscreen_sensitivity_title_head">Sensitividade do toque</string>
+    <string name="touchscreen_sensitivity_summary_head">Define a sensitividade do toque na tela</string>
+    <string name="touchkey_subcat_title">Tecla sensível ao toque</string>
+    <string name="touchkey_light_title_head">Ativar luz de fundo das teclas</string>
+    <string name="touchkey_timeout_title_head">Tempo limite da luz de fundo</string>
+    <string name="touchkey_timeout_summary_head">Quanto tempo a luz de fundo irá ficar acesa depois do botão ser pressionado</string>
+    <string name="category_haptic_title">Resposta Tátil</string>
+    <string name="vibrator_subcat_title">Vibração</string>
+    <string name="vibrator_intensity_title_head">Intensidade da Vibração</string>
+    <string name="vibrator_intensity_summary_head">Define a intensidade da vibração</string>
+    <string name="category_radio_title">Rádio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Ativa HSDPA/HSUPA</string>
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Áudio</string>
+    <string name="use_dock_audio_title_head">Usar Áudio USB do Dock</string>
+    <string name="use_dock_audio_summary_head">Usar o áudio de saída passivo no dock</string>
+    <string name="touchkey_light_summary_off">Ativar luz de fundo</string>
+    <string name="touchkey_light_summary_on">Desativar luz de fundo</string>
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Áudio</string>
+    <string name="use_dock_audio_title_head">Usar Áudio USB do Dock</string>
+    <string name="use_dock_audio_summary_head">Usar o áudio de saída passivo no dock</string>
+</resources>
