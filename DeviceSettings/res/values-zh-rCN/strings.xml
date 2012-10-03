@@ -22,4 +22,9 @@
     <string name="category_radio_title">无线电</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">启用 HSDPA/HSUPA</string>
+
+    <string name="category_dock_title">基座</string>
+    <string name="dockaudio_subcat_title">基座音频</string>
+    <string name="use_dock_audio_title_head">使用基座的 USB 音频</string>
+    <string name="use_dock_audio_summary_head">使用基座上的被动音频输出</string>
 </resources>
