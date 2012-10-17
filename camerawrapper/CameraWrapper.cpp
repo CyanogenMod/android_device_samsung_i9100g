@@ -99,8 +99,8 @@ static char * camera_fixup_getparams(int id, const char * settings)
     params.unflatten(android::String8(settings));
 
     // fix params here
-#warning "Reimplement KEY_SUPPORTED_ISO_MODES"
-//    params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
+
+    params.set("iso-values", iso_values[id]);
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
@@ -114,20 +114,21 @@ char * camera_fixup_setparams(int id, const char * settings)
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
-/*
+
     // fix params here
-    if(params.get("iso")) {
-        const char* isoMode = params.get(android::CameraParameters::KEY_ISO_MODE);
-        if(strcmp(isoMode, "ISO100") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "100");
-        else if(strcmp(isoMode, "ISO200") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "200");
-        else if(strcmp(isoMode, "ISO400") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "400");
-        else if(strcmp(isoMode, "ISO800") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "800");
+
+    const char* isoMode = params.get("iso");
+    if(isoMode) {
+        if(!strcmp(isoMode, "ISO100"))
+            params.set("iso", "100");
+        else if(!strcmp(isoMode, "ISO200"))
+            params.set("iso", "200");
+        else if(!strcmp(isoMode, "ISO400"))
+            params.set("iso", "400");
+        else if(!strcmp(isoMode, "ISO800"))
+            params.set("iso", "800");
     }
-*/
+
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
@@ -144,7 +145,7 @@ int camera_set_preview_window(struct camera_device * device,
 {
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device, (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
 
-    if(!device)
+    if(!device || !window)
         return -EINVAL;
 
     return VENDOR_CALL(device, set_preview_window, window);
