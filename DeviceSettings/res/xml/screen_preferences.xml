@@ -18,8 +18,7 @@
     <CheckBoxPreference
                 android:key="touchkey_light"
                 android:title="@string/touchkey_light_title_head"
-                android:summaryOff="@string/touchkey_light_summary_off"
-                android:summaryOn="@string/touchkey_light_summary_on"
+                android:summary="@string/touchkey_light_summary"
                 android:defaultValue="true"
                 />
     <com.cyanogenmod.settings.device.TouchkeyTimeout

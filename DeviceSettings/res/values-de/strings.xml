@@ -4,22 +4,35 @@
 
     <string name="category_screen_title">Bildschirm</string>
     <string name="touchscreen_subcat_title">Touchscreen</string>
-    <string name="touchscreen_sensitivity_title_head">Touch Empfindlichkeit</string>
-    <string name="touchscreen_sensitivity_summary_head">Setze Touchscreen Empfindlichkeit</string>
+    <string name="touchscreen_sensitivity_title_head">Empfindlichkeit</string>
+    <string name="touchscreen_sensitivity_summary_head">Berührungs-Empfindlichkeit</string>
 
     <string name="touchkey_subcat_title">Touchkeys</string>
     <string name="touchkey_light_title_head">Beleuchtung</string>
-    <string name="touchkey_light_summary_off">Aktiviere Beleuchtung</string>
-    <string name="touchkey_light_summary_on">Deaktiviere Beleuchtung</string> 
-    <string name="touchkey_timeout_title_head">Zeitabschaltung der Beleuchtung</string>
-    <string name="touchkey_timeout_summary_head">Setze Zeit für automatische Abschaltung</string>
+    <string name="touchkey_light_summary">Touchkeys leuchten auf während das Display aktiv ist</string>
+    <string name="touchkey_timeout_title_head">Beleuchtungs-Timeout</string>
+    <string name="touchkey_timeout_summary_head">Zeit für die autom. Abschaltung der Touchkey-Beleuchtung</string>
+
+    <string name="category_sensors_title">Sensoren</string>
+    <string name="accelerometer_subcat_title">Beschleunigungssensor</string>
+    <string name="accelerometer_calibration_title_head">Kalibierungsdaten</string>
+    <string name="accelerometer_calibration_summary_head">Kalibrierungswerte verwenden\nNach Aktivierung bitte Kalibrierung ausführen!</string>
+    <string name="accelerometer_calibrate_title_head">Kalibrieren</string>
+    <string name="accelerometer_calibrate_summary_head">Zum Kalibrieren das Telefon auf eine horizontale, ebene Fläche legen</string>
+    <string name="accelerometer_dialog_head">Kalibrierung beendet</string>
+    <string name="accelerometer_dialog_message">Der Beschleunigungssensor wurde kalibriert</string>
 
     <string name="category_haptic_title">Haptik</string>
-    <string name="vibrator_subcat_title">Vibrator</string>
-    <string name="vibrator_intensity_title_head">Vibrator Intensität</string>
-    <string name="vibrator_intensity_summary_head">Setze Vibrator Intensität</string>
+    <string name="vibrator_subcat_title">Vibration</string>
+    <string name="vibrator_intensity_title_head">Intensität</string>
+    <string name="vibrator_intensity_summary_head">Vibrations-Intensität</string>
 
     <string name="category_radio_title">Mobilfunk</string>
     <string name="hspa_title_head">HSPA</string>
-    <string name="hspa_summary_head">Aktiviere HSDPA/HSUPA</string>
+    <string name="hspa_summary_head">HSDPA/HSUPA an/aus</string>
+
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Audio</string>
+    <string name="use_dock_audio_title_head">USB-Dock Audio</string>
+    <string name="use_dock_audio_summary_head">Passive Audio-Ausgabe des USB-Docks verwenden</string>
 </resources>
