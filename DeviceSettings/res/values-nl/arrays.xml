@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="touchscreen_sensitivity_entries">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40 (standaard)</item>
+        <item>50</item>
+        <item>60</item>
+        <item>75</item>
+        <item>100</item>
+    </string-array>
+
+    <string-array name="touchkey_timeout_entries">
+        <item>Nooit</item>
+        <item>1 seconde</item>
+        <item>2 seconden</item>
+        <item>3 seconden (standaard)</item>
+        <item>4 seconden</item>
+        <item>5 seconden</item>
+        <item>6 seconden</item>
+    </string-array>
+
+    <string-array name="vibrator_intensity_entries">
+        <item>0%</item>
+        <item>25%</item>
+        <item>50% (standaard)</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+
+    <string-array name="hspa_entries">
+        <item>Alleen UMTS</item>
+        <item>Alleen HSDPA</item>
+        <item>HSDPA &amp; HSUPA</item>
+    </string-array>
+
+</resources>
