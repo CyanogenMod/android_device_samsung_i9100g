@@ -20,7 +20,7 @@
         <item>10</item>
         <item>20</item>
         <item>30</item>
-        <item>40 (Standard)</item>
+        <item>40 (Oletus)</item>
         <item>50</item>
         <item>60</item>
         <item>75</item>
@@ -28,27 +28,29 @@
     </string-array>
 
     <string-array name="touchkey_timeout_entries">
-        <item>Niemals</item>
-        <item>1 Sekunde</item>
-        <item>2 Sekunden</item>
-        <item>3 Sekunden (Standard)</item>
-        <item>4 Sekunden</item>
-        <item>5 Sekunden</item>
-        <item>6 Sekunden</item>
+        <item>Never</item>
+        <item>1 second</item>
+        <item>2 seconds</item>
+        <item>3 seconds (Oletus)</item>
+        <item>4 seconds</item>
+        <item>5 seconds</item>
+        <item>6 seconds</item>
     </string-array>
 
     <string-array name="vibrator_intensity_entries">
         <item>0%</item>
         <item>25%</item>
-        <item>50% (Standard)</item>
+        <item>50% (Oletus)</item>
         <item>75%</item>
         <item>100%</item>
     </string-array>
 
     <string-array name="hspa_entries">
-	    <item>Nur UMTS</item>
-	    <item>Nur HSDPA</item>
-	    <item>HSDPA + HSUPA</item>
+        <item>Vain UMTS</item>
+        <item>Vain HSDPA</item>
+        <item>HSDPA + HSUPA</item>
     </string-array>
+
+
 
 </resources>

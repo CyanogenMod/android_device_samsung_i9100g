@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Impostazioni Galaxy S II</string>
+
+    <string name="category_screen_title">Schermo</string>
+    <string name="touchscreen_subcat_title">Schermo tattile</string>
+    <string name="touchscreen_sensitivity_title_head">Sensibilità tocco</string>
+    <string name="touchscreen_sensitivity_summary_head">Imposta la sensibilità al tocco dello schermo</string>
+    <string name="touchkey_subcat_title">Tasti a sfioramento</string>
+
+    <string name="touchkey_light_title_head">Retroilluminazione</string>
+    <string name="touchkey_light_summary">Abilita la retroilluminazione dei tasti a sfioramento quando lo schermo è attivo</string>
+    <string name="touchkey_timeout_title_head">Timer retroilluminazione</string>
+    <string name="touchkey_timeout_summary_head">Imposta l\'intervallo dopo cui la retroilluminazione dei tasti si spegne</string>
+
+    <string name="category_sensors_title">Sensori</string>
+    <string name="accelerometer_subcat_title">Accelerometro</string>
+    <string name="accelerometer_calibration_title_head">Usa dati di calibrazione</string>
+    <string name="accelerometer_calibration_summary_head">Usa i valori di calibrazione dell\'accelerometro. Effettuare una calibrazione dopo aver attivato questa impostazione!</string>
+    <string name="accelerometer_calibrate_title_head">Calibrazione</string>
+    <string name="accelerometer_calibrate_summary_head">Posizionare il telefono su una superficie orizzontale piana e premere per effettuare la calibrazione</string>
+    <string name="accelerometer_dialog_head">Calibrazione effettuata</string>
+    <string name="accelerometer_dialog_message">Il sensore è stato correttamente calibrato.</string>
+
+    <string name="category_haptic_title">Feedback tattile</string>
+    <string name="vibrator_subcat_title">Vibratore</string>
+    <string name="vibrator_intensity_title_head">Intensità vibrazione</string>
+    <string name="vibrator_intensity_summary_head">Imposta l\'intensità della vibrazione</string>
+
+    <string name="category_radio_title">Radio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Abilita HSDPA/HSUPA</string>
+
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Audio</string>
+    <string name="use_dock_audio_title_head">Usa USB audio in dock</string>
+    <string name="use_dock_audio_summary_head">Usa l\'uscita audio passiva quando in dock</string>
+</resources>
+
