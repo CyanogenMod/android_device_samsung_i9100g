@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -57,7 +58,7 @@ public class DockFragmentActivity extends PreferenceFragment {
             boxValue = (((CheckBoxPreference)preference).isChecked() ? "1" : "0");
             Intent i = new Intent("com.cyanogenmod.settings.SamsungDock");
             i.putExtra("data", boxValue);
-            ActivityManagerNative.broadcastStickyIntent(i, null);
+            ActivityManagerNative.broadcastStickyIntent(i, null, UserHandle.USER_ALL);
         }
 
         return true;
@@ -68,8 +69,7 @@ public class DockFragmentActivity extends PreferenceFragment {
         boolean dockAudio = sharedPrefs.getBoolean(DeviceSettings.KEY_USE_DOCK_AUDIO, false);
         Intent i = new Intent("com.cyanogenmod.settings.SamsungDock");
         i.putExtra("data", (dockAudio? "1" : "0"));
-        ActivityManagerNative.broadcastStickyIntent(i, null);
-
+        ActivityManagerNative.broadcastStickyIntent(i, null, UserHandle.USER_ALL);
     }
 
 }
