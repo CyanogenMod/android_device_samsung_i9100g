@@ -29,6 +29,7 @@ PRODUCT_COPY_FILES := \
 
 # Audio
 PRODUCT_COPY_FILES += \
+    device/samsung/i9100g/configs/audio_policy.conf:system/etc/audio_effects.conf \
     device/samsung/i9100g/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Vold
