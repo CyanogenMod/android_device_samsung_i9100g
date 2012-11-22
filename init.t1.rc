@@ -44,14 +44,6 @@ on fs
 	chmod 0660 /dev/i2c-2
 	chown media media /dev/i2c-2
 
-    # We chown/chmod /cache again so because mount is run as root + defaults
-    chown system cache /cache
-    chmod 0770 /cache
-
-    # This may have been created by the recovery system with odd permissions
-    chown system cache /cache/recovery
-    chmod 0770 /cache/recovery
-
 # change permissions for Tiler driver
     chmod 0777 /dev/tiler
     chmod 0777 /dev/dmm
@@ -70,9 +62,6 @@ on fs
     setprop ro.radio.noril yes
 
 on post-fs-data
-	# we will remap this as /mnt/sdcard with the sdcard fuse tool
-	mkdir /data/media 0775 media_rw media_rw
-	chown media_rw media_rw /data/media
 	mkdir /data/misc/wifi 0770 wifi wifi
 	mkdir /data/misc/wifi/sockets 0770 wifi wifi
 	mkdir /data/misc/dhcp 0770 dhcp dhcp
