@@ -17,11 +17,11 @@
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 USE_CAMERA_STUB := true
-BOARD_USES_LIBSECRIL_STUB := true
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
@@ -32,13 +32,14 @@ TARGET_NO_RADIOIMAGE := true
 
 TARGET_BOARD_PLATFORM := omap4
 TARGET_BOOTLOADER_BOARD_NAME := t1
-TARGET_BOARD_INFO_FILE := device/samsung/i9100g/board-info.txt
+TARGET_BOARD_INFO_FILE ?= device/samsung/i9100g/board-info.txt
 
 BOARD_NAND_PAGE_SIZE := 4096
 BOARD_NAND_SPARE_SIZE := 128
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_CMDLINE :=
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9100g/shbootimg.mk
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/samsung/t1
@@ -59,7 +60,6 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # Egl
 BOARD_EGL_CFG := device/samsung/i9100g/configs/egl.cfg
 USE_OPENGL_RENDERER := true
-COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE
 
 # Audio
 BOARD_USE_SAMSUNG_SEPARATEDSTREAM := true
@@ -126,5 +126,3 @@ TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := ./device/samsung/i9100g/releasetool
 
 # Use the non-open-source parts, if they're present
 -include vendor/samsung/i9100g/BoardConfigVendor.mk
-
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9100g/shbootimg.mk
