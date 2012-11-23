@@ -70,6 +70,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     camera.t1 \
+    GalaxyS2Settings \
     libtinyalsa \
     libaudioutils \
     lights.t1 \
@@ -77,10 +78,8 @@ PRODUCT_PACKAGES += \
     tinyplay \
     tinycap \
     tinymix \
-    GalaxyS2Settings \
+    SamsungServiceMode \
     Torch
-
-    #SamsungServiceMode \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
