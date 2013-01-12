@@ -1175,6 +1175,7 @@ static void select_output_device(struct t1_audio_device *adev)
     int headphone_on;
     int speaker_on;
     int earpiece_on;
+    int dock_on;
     int bt_on;
     int dl1_on;
     int sidetone_capture_on = 0;
@@ -1194,6 +1195,7 @@ static void select_output_device(struct t1_audio_device *adev)
     headphone_on = adev->out_device & AUDIO_DEVICE_OUT_WIRED_HEADPHONE;
     speaker_on = adev->out_device & AUDIO_DEVICE_OUT_SPEAKER;
     earpiece_on = adev->out_device & AUDIO_DEVICE_OUT_EARPIECE;
+    dock_on = adev->out_device & AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET;
     bt_on = adev->out_device & AUDIO_DEVICE_OUT_ALL_SCO;
 
     /* force rx path according to TTY mode when in call */
@@ -1227,7 +1229,7 @@ static void select_output_device(struct t1_audio_device *adev)
         }
     }
 
-    dl1_on = headset_on | headphone_on | earpiece_on | bt_on;
+    dl1_on = headset_on | headphone_on | earpiece_on | dock_on | bt_on;
 
     /* Select front end */
     mixer_ctl_set_value(adev->mixer_ctls.mm_dl2, 0, speaker_on);
@@ -1247,7 +1249,7 @@ static void select_output_device(struct t1_audio_device *adev)
     mixer_ctl_set_value(adev->mixer_ctls.earpiece_enable, 0, earpiece_on);
 
     /* select output stage */
-    set_route_by_array(adev->mixer, hs_output, headset_on | headphone_on);
+    set_route_by_array(adev->mixer, hs_output, headset_on | headphone_on | dock_on);
     set_route_by_array(adev->mixer, hf_output, speaker_on);
 
     set_eq_filter(adev);
@@ -1282,7 +1284,7 @@ static void select_output_device(struct t1_audio_device *adev)
                     break;
             }
 
-            if (headset_on || headphone_on || earpiece_on)
+            if (headset_on || headphone_on || earpiece_on || dock_on)
                 set_route_by_array(adev->mixer, vx_ul_amic_left, 1);
             else if (speaker_on)
                 set_route_by_array(adev->mixer, vx_ul_amic_right, 1);
