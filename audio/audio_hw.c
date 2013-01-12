@@ -1175,6 +1175,7 @@ static void select_output_device(struct t1_audio_device *adev)
     int headphone_on;
     int speaker_on;
     int earpiece_on;
+    int dock_on;
     int bt_on;
     int dl1_on;
     int sidetone_capture_on = 0;
@@ -1194,7 +1195,35 @@ static void select_output_device(struct t1_audio_device *adev)
     headphone_on = adev->out_device & AUDIO_DEVICE_OUT_WIRED_HEADPHONE;
     speaker_on = adev->out_device & AUDIO_DEVICE_OUT_SPEAKER;
     earpiece_on = adev->out_device & AUDIO_DEVICE_OUT_EARPIECE;
+    dock_on = adev->out_device & AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET;
     bt_on = adev->out_device & AUDIO_DEVICE_OUT_ALL_SCO;
+
+    switch(adev->out_device) {
+        case AUDIO_DEVICE_OUT_SPEAKER:
+            ALOGE("%s: AUDIO_DEVICE_OUT_SPEAKER", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_WIRED_HEADSET:
+            ALOGE("%s: AUDIO_DEVICE_OUT_WIRED_HEADSET", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_WIRED_HEADPHONE:
+            ALOGE("%s: AUDIO_DEVICE_OUT_WIRED_HEADPHONE", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_EARPIECE:
+            ALOGE("%s: AUDIO_DEVICE_OUT_EARPIECE", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET:
+            ALOGE("%s: AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET:
+            ALOGE("%s: AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_ALL_SCO:
+            ALOGE("%s: AUDIO_DEVICE_OUT_ALL_SCO", __func__);
+            break;
+        default:
+            ALOGE("%s: AUDIO_DEVICE_OUT_ALL", __func__);
+            break;
+    }
 
     /* force rx path according to TTY mode when in call */
     if (adev->mode == AUDIO_MODE_IN_CALL && !bt_on) {
@@ -1227,7 +1256,7 @@ static void select_output_device(struct t1_audio_device *adev)
         }
     }
 
-    dl1_on = headset_on | headphone_on | earpiece_on | bt_on;
+    dl1_on = headset_on | headphone_on | earpiece_on | dock_on | bt_on;
 
     /* Select front end */
     mixer_ctl_set_value(adev->mixer_ctls.mm_dl2, 0, speaker_on);
@@ -1240,14 +1269,14 @@ static void select_output_device(struct t1_audio_device *adev)
                         dl1_on && (adev->mode == AUDIO_MODE_IN_CALL));
     /* Select back end */
     mixer_ctl_set_value(adev->mixer_ctls.dl1_headset, 0,
-                        headset_on | headphone_on | earpiece_on);
+                        headset_on | headphone_on | earpiece_on | dock_on);
     mixer_ctl_set_value(adev->mixer_ctls.dl1_bt, 0, bt_on);
     mixer_ctl_set_value(adev->mixer_ctls.dl2_mono, 0,
                         (adev->mode != AUDIO_MODE_IN_CALL) && speaker_on);
     mixer_ctl_set_value(adev->mixer_ctls.earpiece_enable, 0, earpiece_on);
 
     /* select output stage */
-    set_route_by_array(adev->mixer, hs_output, headset_on | headphone_on);
+    set_route_by_array(adev->mixer, hs_output, headset_on | headphone_on | dock_on);
     set_route_by_array(adev->mixer, hf_output, speaker_on);
 
     set_eq_filter(adev);
@@ -1282,7 +1311,7 @@ static void select_output_device(struct t1_audio_device *adev)
                     break;
             }
 
-            if (headset_on || headphone_on || earpiece_on)
+            if (headset_on || headphone_on || earpiece_on || dock_on)
                 set_route_by_array(adev->mixer, vx_ul_amic_left, 1);
             else if (speaker_on)
                 set_route_by_array(adev->mixer, vx_ul_amic_right, 1);
@@ -1290,7 +1319,7 @@ static void select_output_device(struct t1_audio_device *adev)
                 set_route_by_array(adev->mixer, vx_ul_amic_left, 0);
 
             mixer_ctl_set_enum_by_string(adev->mixer_ctls.left_capture,
-                                        (earpiece_on || headphone_on) ? MIXER_MAIN_MIC :
+                                        (earpiece_on || headphone_on || dock_on) ? MIXER_MAIN_MIC :
                                         (headset_on ? MIXER_HS_MIC : "Off"));
             mixer_ctl_set_enum_by_string(adev->mixer_ctls.right_capture,
                                          speaker_on ? MIXER_SUB_MIC : "Off");
