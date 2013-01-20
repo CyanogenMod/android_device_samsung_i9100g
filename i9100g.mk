@@ -73,6 +73,7 @@ PRODUCT_PACKAGES += \
     GalaxyS2Settings \
     libtinyalsa \
     libaudioutils \
+    libnetcmdiface \
     lights.t1 \
     power.t1 \
     tinyplay \
