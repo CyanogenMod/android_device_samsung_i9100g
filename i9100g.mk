@@ -93,8 +93,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SamsungExynos4RIL \
     mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
     ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10 \
-    ro.ril.gbmodem=true
+    ro.ril.gprsclass=10
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
