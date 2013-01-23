@@ -1,6 +1,6 @@
 import init.t1.usb.rc
 
-on early-init
+on init
 	export EXTERNAL_STORAGE /storage/sdcard0
 	export SECONDARY_STORAGE /storage/sdcard1
     mkdir /storage 0775 system system
