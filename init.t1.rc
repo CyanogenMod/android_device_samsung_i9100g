@@ -1,8 +1,8 @@
 import init.t1.usb.rc
 
-on early-init
-	export EXTERNAL_STORAGE /storage/sdcard0
-	export SECONDARY_STORAGE /storage/sdcard1
+on init
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
     mkdir /storage 0775 system system
     mkdir /storage/sdcard0 0775 system system
     mkdir /storage/sdcard1 0775 system system
@@ -37,12 +37,12 @@ on fs
     chmod 0770 /data/misc/wifi 
 
 # change permissions for mtd device
-	chmod 0660 /dev/mtd/mtd0
-	chown media media /dev/mtd/mtd0
+    chmod 0660 /dev/mtd/mtd0
+    chown media media /dev/mtd/mtd0
 
 # change permissions for i2c-2 device
-	chmod 0660 /dev/i2c-2
-	chown media media /dev/i2c-2
+    chmod 0660 /dev/i2c-2
+    chown media media /dev/i2c-2
 
 # change permissions for Tiler driver
     chmod 0777 /dev/tiler
@@ -52,37 +52,37 @@ on fs
     chmod 0777 /dev/ion
 
 # We chown/chmod /efs because mount is run as root + defaults
-	chown radio system /efs
-	chmod 0775 /efs
-	mkdir /data/radio 0775 radio radio
-	mkdir /data/radio/log 0775 radio radio
+    chown radio system /efs
+    chmod 0775 /efs
+    mkdir /data/radio 0775 radio radio
+    mkdir /data/radio/log 0775 radio radio
 
     setprop ro.build.product GT-I9100G
     setprop ro.product.device GT-I9100G
     setprop ro.radio.noril yes
 
 on post-fs-data
-	mkdir /data/misc/wifi 0770 wifi wifi
-	mkdir /data/misc/wifi/sockets 0770 wifi wifi
-	mkdir /data/misc/dhcp 0770 dhcp dhcp
-	mkdir /data/misc/radio 0771 radio system
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    mkdir /data/misc/radio 0771 radio system
     mkdir /data/misc/radio/hatp 0771 radio system
     chown radio radio /data/misc/radio
-	chown dhcp dhcp /data/misc/dhcp
-	mkdir /data/smc 0770 drmrpc drmrpc
+    chown dhcp dhcp /data/misc/dhcp
+    mkdir /data/smc 0770 drmrpc drmrpc
     chown drmrpc drmrpc /data/smc/counter.bin
     chown drmrpc drmrpc /data/smc/storage.bin
     chown drmrpc drmrpc /data/smc/system.bin
 
-	# camera calibration
-	mkdir /data/misc/camera 0770 media media
-	mkdir /data/misc/camera/R5_MVEN003_LD2_ND0_IR0_SH0_FL1_SVEN003_DCCID1044 0770 media media
+    # camera calibration
+    mkdir /data/misc/camera 0770 media media
+    mkdir /data/misc/camera/R5_MVEN003_LD2_ND0_IR0_SH0_FL1_SVEN003_DCCID1044 0770 media media
 
     setprop vold.post_fs_data_done 1
 
 # MTP Device permission.
-	chmod 0660 /dev/usb_mtp_gadget
-	chown system system /dev/usb_mtp_gadget
+    chmod 0660 /dev/usb_mtp_gadget
+    chown system system /dev/usb_mtp_gadget
 
 # permission for data/log
     mkdir /data/log 0775 system log
@@ -99,7 +99,7 @@ on boot
     chown media audio /sys/class/hdmi_audio/hdmi_audio/hdmi_audio_set_ext
     
 # for hdmi factory test
-	chown radio system /sys/devices/platform/omapdss/display1/sec_timing
+    chown radio system /sys/devices/platform/omapdss/display1/sec_timing
 
 # Permissions for gpio_keys.
     chown radio system /sys/class/sec/sec_key/wakeup_keys
@@ -245,8 +245,8 @@ on boot
     chmod 0660 /sys/bus/i2c/drivers/fsa9480/4-0025/switch
 
 # Permissions for OTG Test
-	chown system radio /sys/class/host_notify/usb_otg/booster
-	chmod 0664 /sys/class/host_notify/usb_otg/booster
+    chown system radio /sys/class/host_notify/usb_otg/booster
+    chmod 0664 /sys/class/host_notify/usb_otg/booster
 
 # Permission for radio
     chown system radio /sys/devices/virtual/misc/multipdp/waketime
@@ -258,22 +258,22 @@ on boot
     chown system system /dev/ttyGS2
     chown system system /dev/ttyGS3
 
-	mount debugfs /sys/kernel/debug /sys/kernel/debug
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
 
     # Device Encryption by Security R&D Group. 
-	setprop ro.crypto.keyfile.userdata /efs/metadata
+    setprop ro.crypto.keyfile.userdata /efs/metadata
 
 # Lower maximum frequency when screen is off
-	write /sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq 700000
+    write /sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq 700000
 
 # cpufreq interactive governor: timer 20ms, min sample 20ms, hispeed 700MHz
-	write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
-	write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 20000
-	write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 700000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 20000
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 700000
 
 # autosuspend root hubs immediatly after attached devices
-	write /sys/bus/usb/devices/usb1/power/autosuspend_delay_ms 0
-	write /sys/bus/usb/devices/usb2/power/autosuspend_delay_ms 0
+    write /sys/bus/usb/devices/usb1/power/autosuspend_delay_ms 0
+    write /sys/bus/usb/devices/usb2/power/autosuspend_delay_ms 0
 
 # Temerature Sensor Permission
     chown system system /sys/devices/platform/omap/omap_temp_sensor.0
@@ -318,31 +318,31 @@ on boot
     chmod 0660 /sys/class/sec/gps/GPS_nRST/value
 
 # for wifi
-	mkdir /efs/wifi 0775 system radio
+    mkdir /efs/wifi 0775 system radio
 
 # ril control auto-suspend
-	chmod 0660 /sys/bus/usb/devices/usb1/power/control
-	chown radio radio /sys/bus/usb/devices/usb1/power/control
+    chmod 0660 /sys/bus/usb/devices/usb1/power/control
+    chown radio radio /sys/bus/usb/devices/usb1/power/control
 
 on property:persist.sys.t1.off_mode=*
-	write /d/pm_debug/enable_off_mode $persist.sys.t1.off_mode
+    write /d/pm_debug/enable_off_mode $persist.sys.t1.off_mode
 
 on property:ril.modem.lte.powercontrol=*
-	write /sys/bus/usb/devices/1-1/power/control $ril.modem.lte.powercontrol
+    write /sys/bus/usb/devices/1-1/power/control $ril.modem.lte.powercontrol
 
 service fRom /system/bin/fRom \
-	-x /data/misc/camera/R5_MVEN003_LD2_ND0_IR0_SH0_FL1_SVEN003_DCCID1044 \
-	-d /dev/mtd/mtd0
-	user media
-	group media
-	class late_start
-	oneshot
+    -x /data/misc/camera/R5_MVEN003_LD2_ND0_IR0_SH0_FL1_SVEN003_DCCID1044 \
+    -d /dev/mtd/mtd0
+    user media
+    group media
+    class late_start
+    oneshot
 
 service pvrsrvctl /vendor/bin/pvrsrvctl --start --no-module
-	class core
-	user root
-	group root
-	oneshot
+    class core
+    user root
+    group root
+    oneshot
 
 service tf_daemon /system/bin/tf_daemon \
         -d -c /vendor/etc/smc_normal_world_android_cfg.ini
@@ -370,51 +370,51 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
-	-Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
+    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
     # we will start as root and wpa_supplicant will switch to user wifi
     # after setting up the capabilities required for WEXT
     # user wifi
     # group wifi inet keystore
-	class main
-	socket wpa_wlan0 dgram 660 wifi wifi
-	disabled
-	oneshot
+    class main
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service dhcpcd_p2p /system/bin/dhcpcd -aABKL
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service iprenew_p2p /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service iprenew_bnep0 /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 # TVout
 service TvoutService_C /system/bin/bintvoutservice
-     class main
-     user system
-     group system
+    class main
+    user system
+    group system
 
 # LPM
 on property:ro.bootmode=charger
