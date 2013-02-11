@@ -1,13 +1,11 @@
-/dev/pvrsrvkm             0666   system     system
-
 #for DSSCOMP
 /dev/dsscomp              0666   system     system
 /dev/tiler                0666   system     system
 
 #for SYSLINK
-/dev/rpmsg-omx0           0660   drmrpc    drmrpc
-/dev/rpmsg-omx1           0660   drmrpc    drmrpc
-/dev/rproc_user           0660   drmrpc    drmrpc
+/dev/rpmsg-omx0           0660   system    drmrpc
+/dev/rpmsg-omx1           0660   system    drmrpc
+/dev/rproc_user           0660   system    drmrpc
 /dev/tf_driver            0660   drmrpc    drmrpc
 /dev/tf_ctrl              0660   drmrpc    drmrpc
 
@@ -28,16 +26,16 @@
 /dev/umts_router          0660   radio      system
 /dev/umts_csd             0660   radio      system
 
-#hdcp
-/dev/hdcp		0664	root		root
+# hdcp
+/dev/hdcp		        0664	root		root
 
 # used by RIL and GPS
-/dev/ttyO0                0660   system     radio
+/dev/ttyO0              0660   system     radio
 
 # FM Device
-/dev/fmradio               0660   system     audio
+/dev/fmradio            0660   system     audio
 
-#for LTE RIL
+# for LTE RIL
 /dev/cdma_boot0		    0660	radio	radio
 /dev/lte_boot0		    0660	radio	radio
 /dev/cdma_ipc0		    0660	radio	radio
@@ -54,5 +52,8 @@
 /dev/cdma_ramdump0      0660    radio   radio
 /dev/lte_ramdump0       0660    radio   radio
 
-# for wifi
-/dev/rfkill             0666    root    root
+# For SGX
+/dev/pvrsrvkm           0666   system     system
+
+# For GCX
+/dev/gcioctl            0666   system		system
