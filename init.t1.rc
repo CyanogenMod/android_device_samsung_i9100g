@@ -33,6 +33,9 @@ on fs
     insmod /system/lib/modules/j4fs.ko
     mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs
 
+# pvr module
+    insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
+
 # change permissions for wifi
     chmod 0770 /data/misc/wifi 
 
@@ -330,15 +333,14 @@ on property:persist.sys.t1.off_mode=*
 on property:ril.modem.lte.powercontrol=*
     write /sys/bus/usb/devices/1-1/power/control $ril.modem.lte.powercontrol
 
-service fRom /system/bin/fRom \
-    -x /data/misc/camera/R5_MVEN003_LD2_ND0_IR0_SH0_FL1_SVEN003_DCCID1044 \
-    -d /dev/mtd/mtd0
-    user media
-    group media
-    class late_start
+# initialize the SGX driver
+service pvrsrvinit /system/vendor/bin/pvrsrvinit
+    class core
+    user root
+    group root
     oneshot
 
-service pvrsrvctl /vendor/bin/pvrsrvctl --start --no-module
+service pvrsrvctl /system/vendor/bin/pvrsrvctl_SGX540_120 --start --no-module
     class core
     user root
     group root
@@ -409,6 +411,15 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
+
+service cpboot-daemon /sbin/cbd -d -p 8
+    class main
+    user root
+    group radio cache inet misc audio sdcard_rw log sdcard_r
+    disabled
+
+on property:init.svc.pvrsrvinit=stopped
+    start cpboot-daemon
 
 # TVout
 service TvoutService_C /system/bin/bintvoutservice

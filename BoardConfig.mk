@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+-include device/samsung/omap4-common/BoardConfigCommon.mk
+
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 USE_CAMERA_STUB := true
@@ -31,6 +33,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 TARGET_BOARD_PLATFORM := omap4
+TARGET_BOARD_OMAP_CPU := 4430
 TARGET_BOOTLOADER_BOARD_NAME := t1
 TARGET_BOARD_INFO_FILE ?= device/samsung/i9100g/board-info.txt
 
@@ -123,8 +126,6 @@ BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun0/file"
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9100g/include
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := i9100g,GT-I9100G
