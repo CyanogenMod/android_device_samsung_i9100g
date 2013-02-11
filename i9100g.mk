@@ -14,7 +14,12 @@
 # limitations under the License.
 #
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/i9100g/overlay
+# Include common makefile
+$(call inherit-product, device/samsung/omap4-common/common.mk)
+
+LOCAL_PATH := device/samsung/i9100g
+
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # This device is hdpi.
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -22,32 +27,29 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_LOCALES += hdpi
 
 # Init files
-PRODUCT_COPY_FILES := \
-    device/samsung/i9100g/init.t1.usb.rc:root/init.t1.usb.rc \
-    device/samsung/i9100g/init.t1.rc:root/init.t1.rc \
-    device/samsung/i9100g/ueventd.t1.rc:root/ueventd.t1.rc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.t1:root/fstab.t1 \
+    $(LOCAL_PATH)/rootdir/init.t1.usb.rc:root/init.t1.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.t1.rc:root/init.t1.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.t1.rc:root/ueventd.t1.rc
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/samsung/i9100g/configs/audio_policy.conf:system/etc/audio_effects.conf \
-    device/samsung/i9100g/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Vold
 PRODUCT_COPY_FILES += \
-    device/samsung/i9100g/configs/vold.fstab:system/etc/vold.fstab
-
-# Set default USB interface
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
+    $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab
 
 # GPS
 PRODUCT_COPY_FILES += \
-    device/samsung/i9100g/configs/gps.conf:system/etc/gps.conf \
-    device/samsung/i9100g/configs/sirfgps.conf:system/etc/sirfgps.conf
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/sirfgps.conf:system/etc/sirfgps.conf
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/samsung/i9100g/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
@@ -55,38 +57,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media profiles
 PRODUCT_COPY_FILES += \
-    device/samsung/i9100g/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    device/samsung/i9100g/configs/media_profiles.xml:system/etc/media_profiles.xml
-
-# Omap4 Packages
-PRODUCT_PACKAGES := \
-    libstagefrighthw \
-    smc_pa_ctrl \
-    tf_daemon
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Packages
 PRODUCT_PACKAGES += \
     audio.primary.t1 \
-    audio.a2dp.default \
-    audio.usb.default \
     camera.t1 \
     GalaxyS2Settings \
-    libtinyalsa \
-    libaudioutils \
-    libnetcmdiface \
+    hwcomposer.t1 \
     lights.t1 \
     power.t1 \
-    tinyplay \
-    tinycap \
-    tinymix \
     SamsungServiceMode \
     Torch
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    static_busybox \
-    make_ext4fs \
-    setup_fs
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -134,6 +117,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-$(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 $(call inherit-product-if-exists, vendor/samsung/i9100g/i9100g-vendor.mk)

@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+-include device/samsung/omap4-common/BoardConfigCommon.mk
+
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 USE_CAMERA_STUB := true
@@ -31,6 +33,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 TARGET_BOARD_PLATFORM := omap4
+TARGET_BOARD_OMAP_CPU := 4430
 TARGET_BOOTLOADER_BOARD_NAME := t1
 TARGET_BOARD_INFO_FILE ?= device/samsung/i9100g/board-info.txt
 
@@ -48,7 +51,7 @@ TARGET_KERNEL_CONFIG := cyanogenmod_i9100g_defconfig
 # Init
 TARGET_PROVIDES_INIT := true
 TARGET_PROVIDES_INIT_TARGET_RC := true
-TARGET_RECOVERY_INITRC := device/samsung/i9100g/recovery.rc
+TARGET_RECOVERY_INITRC := device/samsung/i9100g/rootdir/recovery.rc
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -60,15 +63,6 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # Egl
 BOARD_EGL_CFG := device/samsung/i9100g/configs/egl.cfg
 USE_OPENGL_RENDERER := true
-
-# Audio
-BOARD_USE_SAMSUNG_SEPARATEDSTREAM := true
-
-# HWComposer
-BOARD_USES_HWCOMPOSER := true
-BOARD_USE_SYSFS_VSYNC_NOTIFICATION := true
-# set if the target supports FBIO_WAITFORVSYNC
-TARGET_HAS_WAITFORVSYNC := true
 
 # Camera
 BOARD_CAMERA_HAVE_ISO := true
@@ -96,9 +90,10 @@ WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/wifi/bcmdhd_p2p.bin"
 WIFI_DRIVER_MODULE_NAME          := "dhd"
-WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0 firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+WIFI_DRIVER_MODULE_AP_ARG        := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
 WIFI_BAND                        := 802_11_ABG
-BOARD_LEGACY_NL80211_STA_EVENTS  := true
+BOARD_HAVE_SAMSUNG_WIFI          := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -123,8 +118,6 @@ BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun0/file"
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9100g/include
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := i9100g,GT-I9100G

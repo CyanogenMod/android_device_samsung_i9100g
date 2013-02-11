@@ -22,19 +22,23 @@ on init
     chmod 0666 /dev/pvrsrvkm
 
 on fs
-    mount ext4 /dev/block/mmcblk0p9 /system noatime wait ro
-    mount ext4 /dev/block/mmcblk0p7 /cache nosuid nodev noatime wait
-    mount ext4 /dev/block/mmcblk0p1 /efs nosuid nodev noatime wait
-    mount ext4 /dev/block/mmcblk0p10 /data nosuid nodev noatime wait noauto_da_alloc
+    mount_all /fstab.t1
 
-    chown radio system /efs
-    chmod 0771 /efs
-
+# j4fs module
     insmod /system/lib/modules/j4fs.ko
     mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs
 
+# pvr module
+    insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
+
 # change permissions for wifi
     chmod 0770 /data/misc/wifi 
+
+# dmrpc
+	mkdir /data/smc 0770 drmrpc drmrpc
+    chown drmrpc drmrpc /data/smc/counter.bin
+    chown drmrpc drmrpc /data/smc/storage.bin
+    chown drmrpc drmrpc /data/smc/system.bin
 
 # change permissions for mtd device
     chmod 0660 /dev/mtd/mtd0
@@ -54,6 +58,10 @@ on fs
 # We chown/chmod /efs because mount is run as root + defaults
     chown radio system /efs
     chmod 0775 /efs
+
+    mkdir /data/misc/radio/hatp 0771 radio system
+    chown radio radio /data/misc/radio
+
     mkdir /data/radio 0775 radio radio
     mkdir /data/radio/log 0775 radio radio
 
@@ -144,8 +152,8 @@ on boot
     chmod 0660 /sys/power/wake_unlock
 
 # Change permission for backlight
-    chown system system /sys/class/backlight/pwm-backlight/brightness
-    chmod 0660 /sys/class/backlight/pwm-backlight/brightness
+    chown system system /sys/class/backlight/panel/brightness
+    chmod 0660 /sys/class/backlight/panel/brightness
 
     chown radio system /sys/class/misc/melfas_touchkey/brightness
     chmod 0660 /sys/class/sec/melfas_touchkey/brightness
@@ -208,14 +216,13 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
 
-#changer permission for overlay manager
+# changer permission for overlay manager
     chown system system /sys/devices/platform/omapdss/overlay2/manager
     chown system system /sys/devices/platform/omapdss/overlay2/enabled
     chown system system /sys/devices/platform/omapdss/overlay1/manager
     chown system system /sys/devices/platform/omapdss/overlay1/enabled
     chown system system /sys/devices/platform/omapdss/overlay0/manager
     chown system system /sys/devices/platform/omapdss/overlay0/enabled
-#SISO Anuradha change
 
 # Vibrator
     chmod 0660 /dev/tspdrv
@@ -330,15 +337,14 @@ on property:persist.sys.t1.off_mode=*
 on property:ril.modem.lte.powercontrol=*
     write /sys/bus/usb/devices/1-1/power/control $ril.modem.lte.powercontrol
 
-service fRom /system/bin/fRom \
-    -x /data/misc/camera/R5_MVEN003_LD2_ND0_IR0_SH0_FL1_SVEN003_DCCID1044 \
-    -d /dev/mtd/mtd0
-    user media
-    group media
-    class late_start
+# initialize the SGX driver
+service pvrsrvinit /system/vendor/bin/pvrsrvinit
+    class core
+    user root
+    group root
     oneshot
 
-service pvrsrvctl /vendor/bin/pvrsrvctl --start --no-module
+service pvrsrvctl /system/vendor/bin/pvrsrvctl_SGX540_120 --start --no-module
     class core
     user root
     group root
@@ -359,22 +365,25 @@ service smc_pa_wvdrm /system/bin/smc_pa_ctrl \
     oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
-    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin 
-    # we will start as root and wpa_supplicant will switch to user wifi
-    # after setting up the capabilities required for WEXT
-    # user wifi
-    # group wifi inet keystore
+        -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
+        -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
+        -puse_p2p_group_interface=1
+    #   we will start as root and wpa_supplicant will switch to user wifi
+    #   after setting up the capabilities required for WEXT
+    #   user wifi
+    #   group wifi inet keystore
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
-    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
-    # we will start as root and wpa_supplicant will switch to user wifi
-    # after setting up the capabilities required for WEXT
-    # user wifi
-    # group wifi inet keystore
+        -Dnl80211 -iwlan0 -e/data/misc/wifi/entropy.bin \
+        -c/data/misc/wifi/wpa_supplicant.conf
+    #   we will start as root and wpa_supplicant will switch to user wifi
+    #   after setting up the capabilities required for WEXT
+    #   user wifi
+    #   group wifi inet keystore
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
@@ -416,7 +425,7 @@ service cpboot-daemon /sbin/cbd -d -p 8
     group radio cache inet misc audio sdcard_rw log sdcard_r
     disabled
 
-on property:init.svc.pvrsrvctl=stopped
+on property:init.svc.pvrsrvinit=stopped
     start cpboot-daemon
 
 # TVout

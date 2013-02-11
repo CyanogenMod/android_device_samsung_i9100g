@@ -32,7 +32,7 @@
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
-char const *const LCD_FILE = "/sys/class/backlight/pwm-backlight/brightness";
+char const *const LCD_FILE = "/sys/class/backlight/panel/brightness";
 
 char const *const BUTTON_POWER = "/sys/class/sec/sec_touchkey/enable_disable";
 char const *const BUTTON_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
