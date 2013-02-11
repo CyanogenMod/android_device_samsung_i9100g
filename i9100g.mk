@@ -71,6 +71,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     camera.t1 \
     GalaxyS2Settings \
+    hwcomposer.t1 \
     libtinyalsa \
     libaudioutils \
     libnetcmdiface \
@@ -137,3 +138,4 @@ $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 $(call inherit-product-if-exists, vendor/samsung/i9100g/i9100g-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/omap4-common/common-vendor.mk)
