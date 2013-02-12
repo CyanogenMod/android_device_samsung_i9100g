@@ -19,8 +19,12 @@
 MANUFACTURER=samsung
 DEVICE=i9100g
 
+adb root
+adb wait-for-device
+
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
+adb pull /sbin/cbd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sbin/cbd
 adb pull /system/bin/bcm4330B1.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4330B1.hcd
 adb pull /system/bin/bintvoutservice ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bintvoutservice
 adb pull /system/bin/fRom ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/fRom
@@ -142,6 +146,9 @@ adb pull /system/vendor/lib/libpvrANDROID_WSEGL.so ../../../vendor/$MANUFACTURER
 adb pull /system/vendor/lib/libsrv_init.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/lib/libsrv_init.so
 adb pull /system/vendor/lib/libsrv_um.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/lib/libsrv_um.so
 adb pull /system/vendor/lib/libusc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/lib/libusc.so
+adb pull /system/lib/libfactoryutil.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libfactoryutil.so
+adb pull /system/lib/libomission_avoidance.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libomission_avoidance.so
+adb pull /system/lib/libsecnativefeature.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecnativefeature.so
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2012 The CyanogenMod Project
@@ -164,6 +171,9 @@ LOCAL_PATH := vendor/samsung/i9100g
 PRODUCT_COPY_FILES := \
     \$(LOCAL_PATH)/proprietary/system/lib/libril.so:obj/lib/libril.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsecril-client.so:obj/lib/libsecril-client.so
+
+PRODUCT_COPY_FILES += \\
+    \$(LOCAL_PATH)/proprietary/sbin/cbd:root/sbin/cbd \\
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/bin/bcm4330B1.hcd:system/bin/bcm4330B1.hcd \\
@@ -196,8 +206,11 @@ PRODUCT_COPY_FILES += \\
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/libakm.so:system/lib/libakm.so \\
+    \$(LOCAL_PATH)/proprietary/system/lib/libfactoryutil.so:system/lib/libfactoryutil.so \\
+    \$(LOCAL_PATH)/proprietary/system/lib/libomission_avoidance.so:system/lib/libomission_avoidance.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libril.so:system/lib/libril.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsec-ril.so:system/lib/libsec-ril.so \\
+    \$(LOCAL_PATH)/proprietary/system/lib/libsecnativefeature.so:system/lib/libsecnativefeature.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsecril-client.so:system/lib/libsecril-client.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libmllite.so:system/lib/libmllite.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libmlplatform.so:system/lib/libmlplatform.so \\
