@@ -329,7 +329,7 @@ int camera_cancel_picture(struct camera_device * device)
     if(!device)
         return -EINVAL;
 
-    return VENDOR_CALL(device, take_picture);
+    return VENDOR_CALL(device, cancel_picture);
 }
 
 int camera_set_parameters(struct camera_device * device, const char *params)
