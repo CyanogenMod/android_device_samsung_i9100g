@@ -49,4 +49,5 @@
     <string name="dockaudio_subcat_title">Áudio</string>
     <string name="use_dock_audio_title_head">Usar Áudio USB do Dock</string>
     <string name="use_dock_audio_summary_head">Usar o áudio de saída passivo no dock</string>
+    <string name="category_sensors_title">Sensores</string>
 </resources>
