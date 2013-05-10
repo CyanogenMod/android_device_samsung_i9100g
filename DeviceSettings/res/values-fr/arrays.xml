@@ -12,9 +12,8 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
-<resources>
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="touchscreen_sensitivity_entries">
         <item>10</item>
         <item>20</item>
@@ -26,7 +25,7 @@
         <item>100</item>
     </string-array>
     <string-array name="touchkey_timeout_entries">
-        <item>Jamais</item>
+        <item>Désactivé</item>
         <item>1 seconde</item>
         <item>2 secondes</item>
         <item>3 secondes (Défaut)</item>
@@ -35,7 +34,7 @@
         <item>6 secondes</item>
     </string-array>
     <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
+        <item>Désactivé</item>
         <item>25%</item>
         <item>50% (Défaut)</item>
         <item>75%</item>
