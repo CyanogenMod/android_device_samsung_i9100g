@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -47,8 +47,8 @@
 
     <string-array name="hspa_entries">
         <item>仅使用 UMTS</item>
-	<item>仅使用 HSDPA</item>
-	<item>使用 HSDPA + HSUPA</item>
+        <item>仅使用 HSDPA</item>
+        <item>使用 HSDPA + HSUPA</item>
     </string-array>
 
 </resources>
