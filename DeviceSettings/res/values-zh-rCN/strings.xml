@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Galaxy S II 设置</string>
+    <string name="app_name">高级设置</string>
 
     <string name="category_screen_title">屏幕</string>
     <string name="touchscreen_subcat_title">触摸屏</string>
@@ -31,11 +31,11 @@
     <string name="category_sensors_title">感应器</string>
     <string name="accelerometer_subcat_title">加速规</string>
     <string name="accelerometer_calibration_title_head">使用校准数据</string>
-    <string name="accelerometer_calibration_summary_head">使用加速规的校准数据. 请在检查此之后重新校准!</string>
+    <string name="accelerometer_calibration_summary_head">使用加速规的校准数据。请在检查此之后重新校准！</string>
     <string name="accelerometer_calibrate_title_head">校准</string>
-    <string name="accelerometer_calibrate_summary_head">把手机放在平面上, 然后点击此按键进行校准</string>
+    <string name="accelerometer_calibrate_summary_head">把手机放在平面上，然后点击此按键进行校准</string>
     <string name="accelerometer_dialog_head">校准完成</string>
-    <string name="accelerometer_dialog_message">感应器已被成功的校准.</string>
+    <string name="accelerometer_dialog_message">感应器已被成功的校准。</string>
 
     <string name="category_haptic_title">振动</string>
     <string name="vibrator_subcat_title">振动器</string>
