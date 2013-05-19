@@ -100,13 +100,9 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
     // fix params here
     params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
-
-    /* Back camera */
-    if(id == 0) {
-        params.set(android::CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "1.0");
-        params.set(android::CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, "-3");
-        params.set(android::CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, "3");
-    }
+    params.set(android::CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "1.0");
+    params.set(android::CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, "-3");
+    params.set(android::CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, "3");
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
