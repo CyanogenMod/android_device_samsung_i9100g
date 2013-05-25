@@ -22,7 +22,7 @@
 */
 
 
-#define LOG_NDEBUG 0
+//#define LOG_NDEBUG 0
 //#define LOG_PARAMETERS
 
 #define LOG_TAG "CameraWrapper"
@@ -100,6 +100,9 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
     // fix params here
     params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
+    params.set(android::CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "1.0");
+    params.set(android::CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, "-3");
+    params.set(android::CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, "3");
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
@@ -110,12 +113,17 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
 char * camera_fixup_setparams(int id, const char * settings)
 {
+    const char* isoMode;
+
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
     // fix params here
-    if(params.get("iso")) {
-        const char* isoMode = params.get(android::CameraParameters::KEY_ISO_MODE);
+
+    /* ISO modes */
+    if(params.get(android::CameraParameters::KEY_ISO_MODE)) {
+        isoMode = params.get(android::CameraParameters::KEY_ISO_MODE);
+
         if(strcmp(isoMode, "ISO100") == 0)
             params.set(android::CameraParameters::KEY_ISO_MODE, "100");
         else if(strcmp(isoMode, "ISO200") == 0)

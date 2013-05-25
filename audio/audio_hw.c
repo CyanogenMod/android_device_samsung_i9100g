@@ -3396,6 +3396,21 @@ static int adev_set_parameters(struct audio_hw_device *dev, const char *kvpairs)
             adev->screen_off = true;
     }
 
+    ret = str_parms_get_str(parms, "noise_suppression", value, sizeof(value));
+    if (ret >= 0) {
+        if (strcmp(value, "true") == 0) {
+            ALOGE("%s: enabling two mic control", __func__);
+            ril_set_two_mic_control(&adev->ril, AUDIENCE, TWO_MIC_SOLUTION_ON);
+            /* multi mic configuration */
+            set_route_by_array(adev->mixer, mm_ul2_amic_dual_main_sub, 1);
+        } else {
+            ALOGE("%s: disabling two mic control", __func__);
+            ril_set_two_mic_control(&adev->ril, AUDIENCE, TWO_MIC_SOLUTION_OFF);
+            /* multi mic configuration */
+            set_route_by_array(adev->mixer, mm_ul2_amic_dual_main_sub, 0);
+        }
+    }
+
     str_parms_destroy(parms);
     return ret;
 }

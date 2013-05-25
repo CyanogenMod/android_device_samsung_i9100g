@@ -15,38 +15,33 @@
  -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">"Ajustes Galaxy S II"</string>
-
-    <string name="category_screen_title">"Pantalla"</string>
-    <string name="touchscreen_subcat_title">"Pantalla táctil"</string>
-    <string name="touchscreen_sensitivity_title_head">"Sensibilidad táctil"</string>
-    <string name="touchscreen_sensitivity_summary_head">"Establecer la sensibilidad del panel táctil"</string>
-
-    <string name="touchkey_subcat_title">"Teclas táctiles"</string>
-    <string name="touchkey_light_title_head">"Retroiluminación"</string>
-    <string name="touchkey_light_summary">"Retroiluminación teclas táctiles cuando la pantalla está activa"</string>
-    <string name="touchkey_timeout_title_head">"Tiempo de espera de retroiluminación"</string>
-    <string name="touchkey_timeout_summary_head">"Tiempo tras pulsar una tecla antes de apagar la retroiluminación"</string>
-
-    <string name="category_sensors_title">"Sensores"</string>
-    <string name="accelerometer_subcat_title">"Acelerómetro"</string>
-    <string name="accelerometer_calibration_title_head">"Usar datos de calibración"</string>
-    <string name="accelerometer_calibration_summary_head">"Usar los valores de calibración del acelerómetro. ¡Realizar una calibración después de habilitar esta funcionalidad!"</string>
-    <string name="accelerometer_calibrate_title_head">"Calibrar"</string>
-    <string name="accelerometer_calibrate_summary_head">"Poner el teléfono sobre una superficie plana, y presionar este menú para calibrar de nuevo"</string>
-    <string name="accelerometer_dialog_head">"Calibración realizada"</string>
-    <string name="accelerometer_dialog_message">"El sensor ha sido calibrado satisfactoriamente"</string>
-
-    <string name="category_haptic_title">"Háptica"</string>
-    <string name="vibrator_subcat_title">"Vibración"</string>
-    <string name="vibrator_intensity_title_head">"Intensidad de vibración"</string>
-    <string name="vibrator_intensity_summary_head">"Establecer la intensidad de vibración"</string>
-    <string name="category_radio_title">"Radio"</string>
-    <string name="hspa_title_head">"HSPA"</string>
-    <string name="hspa_summary_head">"Habilitar HSDPA/HSUPA"</string>
-
-    <string name="category_dock_title">"Conector"</string>
-    <string name="dockaudio_subcat_title">"Audio"</string>
-    <string name="use_dock_audio_title_head">"Usar el conector de audio USB"</string>
-    <string name="use_dock_audio_summary_head">"Usar la salida de audio pasiva cuando el conector USB esté activado"</string>
+    <string name="app_name">Ajustes avanzados</string>
+    <string name="category_screen_title">Pantalla</string>
+    <string name="touchscreen_subcat_title">Pantalla táctil</string>
+    <string name="touchscreen_sensitivity_title_head">Sensibilidad táctil</string>
+    <string name="touchscreen_sensitivity_summary_head">Establecer la sensibilidad del panel táctil</string>
+    <string name="touchkey_subcat_title">Teclas táctiles</string>
+    <string name="touchkey_light_title_head">Retroiluminación</string>
+    <string name="touchkey_light_summary">Retroiluminación teclas táctiles cuando la pantalla está activa</string>
+    <string name="touchkey_timeout_title_head">Tiempo de espera de retroiluminación</string>
+    <string name="touchkey_timeout_summary_head">Tiempo tras pulsar una tecla antes de apagar la retroiluminación</string>
+    <string name="category_sensors_title">Sensores</string>
+    <string name="accelerometer_subcat_title">Acelerómetro</string>
+    <string name="accelerometer_calibration_title_head">Usar datos de calibración</string>
+    <string name="accelerometer_calibration_summary_head">Usar los valores de calibración del acelerómetro. ¡Realizar una calibración después de habilitar esta funcionalidad!</string>
+    <string name="accelerometer_calibrate_title_head">Calibrar</string>
+    <string name="accelerometer_calibrate_summary_head">Poner el teléfono sobre una superficie plana, y presionar este menú para calibrar de nuevo</string>
+    <string name="accelerometer_dialog_head">Calibración realizada</string>
+    <string name="accelerometer_dialog_message">El sensor ha sido calibrado satisfactoriamente</string>
+    <string name="category_haptic_title">Háptica</string>
+    <string name="vibrator_subcat_title">Vibración</string>
+    <string name="vibrator_intensity_title_head">Intensidad de vibración</string>
+    <string name="vibrator_intensity_summary_head">Establecer la intensidad de vibración</string>
+    <string name="category_radio_title">Radio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Habilitar HSDPA/HSUPA</string>
+    <string name="category_dock_title">Base</string>
+    <string name="dockaudio_subcat_title">Sonido</string>
+    <string name="use_dock_audio_title_head">Usar sonido USB</string>
+    <string name="use_dock_audio_summary_head">Utilizar la salida de audio de la base</string>
 </resources>
