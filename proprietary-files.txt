@@ -5,7 +5,6 @@ system/bin/fRom
 system/bin/immvibed
 system/bin/lpmkey
 system/bin/playlpm
-system/bin/rild
 system/cameradata/datapattern_420sp.yuv
 system/cameradata/datapattern_front_420sp.yuv
 system/etc/wifi/bcmdhd_apsta.bin
@@ -39,7 +38,6 @@ system/lib/libmlplatform.so
 system/lib/libmm_osal.so
 system/lib/libmpl.so
 system/lib/libomission_avoidance.so
-system/lib/libril.so
 system/lib/libsec-ril.so
 system/lib/libsecnativefeature.so
 system/lib/libsecril-client.so
