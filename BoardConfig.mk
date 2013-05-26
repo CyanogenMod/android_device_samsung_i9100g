@@ -34,6 +34,8 @@ BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_CMDLINE :=
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9100g/shbootimg.mk
 
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9100g/include
+
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/samsung/t1
 TARGET_KERNEL_CONFIG := cyanogenmod_i9100g_defconfig
@@ -65,6 +67,9 @@ BOARD_VOLD_MAX_PARTITIONS := 12
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/f_mass_storage/lun%d/file"
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
 
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd
