@@ -39,6 +39,7 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     private static final String FILE_TOUCHKEY_ENABLE_DISABLE = "/sys/class/sec/sec_touchkey/enable_disable";
     private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +49,10 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
         if (((CheckBoxPreference)prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_LIGHT)).isChecked()) {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(true);
         } else {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(false);
         }
 
     }
@@ -67,11 +70,13 @@ public class ScreenFragmentActivity extends PreferenceFragment {
                 Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
                 Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "1");
                 preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(true);
             } else {
                 Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
                 Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
                 Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "0");
                 preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(false);
             }
         }
 
