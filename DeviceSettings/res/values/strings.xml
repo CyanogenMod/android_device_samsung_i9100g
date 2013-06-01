@@ -21,6 +21,8 @@
     <string name="touchscreen_subcat_title">Touchscreen</string>
     <string name="touchscreen_sensitivity_title_head">Touch sensitivity</string>
     <string name="touchscreen_sensitivity_summary_head">Set touch panel sensitivity</string>
+    <string name="touchscreen_led_title_head">Backlight</string>
+    <string name="touchscreen_led_summary_head">Light up touchkeys when touch screen</string>
 
     <string name="touchkey_subcat_title">Touchkeys</string>
     <string name="touchkey_light_title_head">Backlight</string>

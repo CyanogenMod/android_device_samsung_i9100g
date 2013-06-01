@@ -38,6 +38,7 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     private static final String FILE_TOUCHKEY_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
     private static final String FILE_TOUCHKEY_ENABLE_DISABLE = "/sys/class/sec/sec_touchkey/enable_disable";
     private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
+    private static final String FILE_TOUCHSCREEN_LED = "/sys/class/sec/sec_touchscreen/tsp_led";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +49,10 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
         if (((CheckBoxPreference)prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_LIGHT)).isChecked()) {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(true);
         } else {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(false);
         }
 
     }
@@ -67,12 +70,23 @@ public class ScreenFragmentActivity extends PreferenceFragment {
                 Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
                 Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "1");
                 preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(true);
             } else {
                 Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
                 Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
                 Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "0");
                 preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHSCREEN_LED).setEnabled(false);
             }
+        }
+
+        if (key.compareTo(DeviceSettings.KEY_TOUCHSCREEN_LED) == 0) {
+            if (((CheckBoxPreference)preference).isChecked()) {
+                Utils.writeValue(FILE_TOUCHSCREEN_LED, "1");
+            } else {
+                Utils.writeValue(FILE_TOUCHSCREEN_LED, "0");
+            }
+
         }
 
         return true;
@@ -85,8 +99,10 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
+        boolean led = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHSCREEN_LED, true);
 
         Utils.writeValue(FILE_TOUCHKEY_DISABLE, light ? "0" : "1");
         Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, light ? "1" : "0");
+        Utils.writeValue(FILE_TOUCHSCREEN_LED, led ? "1" : "0");
     }
 }

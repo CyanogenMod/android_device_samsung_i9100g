@@ -24,6 +24,12 @@
                 android:entries="@array/touchscreen_sensitivity_entries"
                 android:entryValues="@array/touchscreen_sensitivity_entries_values"
                 android:defaultValue="40" />
+    <CheckBoxPreference
+                android:key="touchscreen_led"
+                android:title="@string/touchscreen_led_title_head"
+                android:summary="@string/touchscreen_led_summary_head"
+                android:defaultValue="false"
+                />
     </PreferenceCategory>
 
     <PreferenceCategory
