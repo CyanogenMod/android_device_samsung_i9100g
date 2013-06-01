@@ -206,6 +206,7 @@ on boot
     chown radio system /sys/class/sec/sec_touchscreen/tsp_firm_update_status
     chown radio system /sys/class/sec/sec_touchscreen/tsp_firm_update
     chown radio system /sys/class/sec/sec_touchscreen/tsp_threshold
+    chown radio system /sys/class/sec/sec_touchscreen/tsp_led
 
 # Permissions for bluetooth
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"

@@ -51,4 +51,8 @@
         <item>使用 HSDPA + HSUPA</item>
     </string-array>
 
+    <string-array name="touchscreen_led_entries">
+        <item>仅触摸键 (默认)</item>
+        <item>触摸键与触摸屏</item>
+    </string-array>
 </resources>
