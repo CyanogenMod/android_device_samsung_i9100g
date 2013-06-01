@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,14 +13,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Geavanceerde instellingen</string>
 
-    <string name="defaults_button">Herstellen naar standaard</string>
+    <string name="defaults_button">Standaardwaarden</string>
 
     <string name="category_screen_title">Scherm</string>
     <string name="screen_colors_title">Kleuren</string>
+
+    <string name="cabc_title_head">Inhoud (CABC)</string>
+    <string name="cabc_summary_head">Inhoudsafhankelijke achtergrondverlichting inschakelen</string>
 
     <string name="panel_gamma_title_head">Schermgamma</string>
     <string name="panel_gamma_summary_head">Schermgammawaarden instellen</string>
@@ -29,9 +31,11 @@
     <string name="touchscreen_sensitivity_title_head">Aanraakgevoeligheid</string>
     <string name="touchscreen_sensitivity_summary_head">Gevoeligheid aanraakscherm instellen</string>
 
-    <string name="touchkey_subcat_title">Aanraakknop</string>
-    <string name="touchkey_timeout_title_head">Time-out achtergrondlicht</string>
-    <string name="touchkey_timeout_summary_head">Vertraging na druk op een knop voor uitschakelen achtergrondlicht</string>
+    <string name="touchkey_subcat_title">Aanraakknoppen</string>
+    <string name="touchkey_led_mode_title">Aanraakgebied verlichting</string>
+    <string name="touchkey_led_mode_summary">Gebied selecteren waarbinnen de aanraakknoppen bij aanraking oplichten</string>
+    <string name="touchkey_timeout_title_head">Time-out verlichting</string>
+    <string name="touchkey_timeout_summary_head">Vertraging van uitschakelen verlichting aanraakknoppen</string>
 
     <string name="category_sensors_title">Sensoren</string>
     <string name="accelerometer_subcat_title">Versnellingsmeter</string>
@@ -44,8 +48,9 @@
 
     <string name="category_haptic_title">Trillen</string>
     <string name="vibrator_title">Trilapparaat</string>
-    <string name="vibrator_tuning_title">Trilsterkte</string>
-    <string name="vibrator_tuning_summary_head">Sterkte instellen van trillen</string>
+    <string name="vibrator_tuning_title">Trilintensiteit</string>
+    <string name="vibrator_tuning_summary_head">Trilintensiteit instellen</string>
+    <string name="vibrator_warning">Waarden hoger dan %1$d worden niet aangeraden</string>
 
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
@@ -53,6 +58,6 @@
 
     <string name="category_dock_title">Dock</string>
     <string name="dockaudio_subcat_title">Geluid</string>
-    <string name="use_dock_audio_title_head">USB-geluidsdock</string>
+    <string name="use_dock_audio_title_head">USB-geluid van dock</string>
     <string name="use_dock_audio_summary_head">Passieve geluidsuitgang van het dock gebruiken</string>
 </resources>
