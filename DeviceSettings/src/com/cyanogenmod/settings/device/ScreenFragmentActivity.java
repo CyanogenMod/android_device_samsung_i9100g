@@ -21,6 +21,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
@@ -30,23 +31,26 @@ import android.util.Log;
 
 import com.cyanogenmod.settings.device.R;
 
-public class ScreenFragmentActivity extends PreferenceFragment {
+public class ScreenFragmentActivity extends PreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String PREF_ENABLED = "1";
     private static final String TAG = "GalaxyS2Settings_Screen";
 
     private static final String FILE_TOUCHKEY_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
-    private static final String FILE_TOUCHKEY_ENABLE_DISABLE = "/sys/class/sec/sec_touchkey/enable_disable";
-    private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         addPreferencesFromResource(R.xml.screen_preferences);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        if (((CheckBoxPreference)prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_LIGHT)).isChecked()) {
+        final ListPreference modePref = (ListPreference)findPreference(DeviceSettings.KEY_TOUCHKEY_LED_MODE);
+        int mode = Integer.parseInt(modePref.getValue());
+        modePref.setOnPreferenceChangeListener(this);
+
+          if (mode > 0) {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
         } else {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
@@ -54,39 +58,26 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     }
 
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-        String key = preference.getKey();
+        PreferenceScreen prefSet = getPreferenceScreen();
 
-        Log.w(TAG, "key: " + key);
+	    final String val = newValue.toString();
+        final ListPreference modePref = (ListPreference)findPreference(DeviceSettings.KEY_TOUCHKEY_LED_MODE);
+        int mode = modePref.findIndexOfValue(val);
 
-        if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
-            if (((CheckBoxPreference)preference).isChecked()) {
-                Utils.writeValue(FILE_TOUCHKEY_DISABLE, "0");
-                Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
-                Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "1");
-                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
-            } else {
-                Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
-                Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
-                Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, "0");
-                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
-            }
+          if (mode > 0) {
+            Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+        } else {
+            Utils.writeValue(FILE_TOUCHKEY_NOTIFICATION, ("0"));
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
         }
 
-        return true;
+                return true;
     }
 
     public static boolean isSupported(String FILE) {
         return Utils.fileExists(FILE);
-    }
-
-    public static void restore(Context context) {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
-
-        Utils.writeValue(FILE_TOUCHKEY_DISABLE, light ? "0" : "1");
-        Utils.writeValue(FILE_TOUCHKEY_ENABLE_DISABLE, light ? "1" : "0");
     }
 }

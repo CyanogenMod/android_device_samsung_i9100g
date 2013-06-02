@@ -86,4 +86,16 @@
         <item>23</item>
     </string-array>
 
+    <string-array name="touchkey_led_mode_entries">
+        <item>None (disable backlight)</item>
+        <item>Touchkeys only</item>
+        <item>Touchkeys and touchscreen</item>
+    </string-array>
+
+    <string-array name="touchkey_led_mode_entries_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

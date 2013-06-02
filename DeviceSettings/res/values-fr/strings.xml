@@ -20,8 +20,6 @@
     <string name="touchscreen_sensitivity_title_head">Sensibilité</string>
     <string name="touchscreen_sensitivity_summary_head">Définir la sensibilité du toucher</string>
     <string name="touchkey_subcat_title">Touches tactiles</string>
-    <string name="touchkey_light_title_head">Rétroéclairage</string>
-    <string name="touchkey_light_summary">Activer le rétroéclairage des touches tactiles lorsque l\'écran est activé</string>
     <string name="touchkey_timeout_title_head">Délai avant extinction</string>
     <string name="touchkey_timeout_summary_head">Définir le délai avant l\'extinction des touches</string>
     <string name="category_sensors_title">Capteurs</string>
