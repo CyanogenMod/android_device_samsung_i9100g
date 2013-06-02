@@ -38,6 +38,7 @@ public class DeviceSettings extends FragmentActivity {
     public static final String KEY_HSPA = "hspa";
     public static final String KEY_TOUCHSCREEN_SENSITIVITY = "touchscreen_sensitivity";
     public static final String KEY_TOUCHKEY_LIGHT = "touchkey_light";
+    public static final String KEY_TOUCHKEY_MODE = "touchkey_mode";
     public static final String KEY_TOUCHKEY_TIMEOUT = "touchkey_timeout";
     public static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
     public static final String KEY_ACCELEROMETER_CALIBRATION = "accelerometer_calibration";
