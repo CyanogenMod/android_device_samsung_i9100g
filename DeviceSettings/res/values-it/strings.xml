@@ -21,10 +21,8 @@
     <string name="touchscreen_subcat_title">Schermo tattile</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilità tocco</string>
     <string name="touchscreen_sensitivity_summary_head">Imposta la sensibilità al tocco dello schermo</string>
-    <string name="touchkey_subcat_title">Tasti a sfioramento</string>
 
-    <string name="touchkey_light_title_head">Retroilluminazione</string>
-    <string name="touchkey_light_summary">Abilita la retroilluminazione dei tasti a sfioramento quando lo schermo è attivo</string>
+    <string name="touchkey_subcat_title">Tasti a sfioramento</string>
     <string name="touchkey_timeout_title_head">Timer retroilluminazione</string>
     <string name="touchkey_timeout_summary_head">Imposta l\'intervallo dopo cui la retroilluminazione dei tasti si spegne</string>
 

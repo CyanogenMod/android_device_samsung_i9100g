@@ -29,12 +29,13 @@
     <PreferenceCategory
                 android:title="@string/touchkey_subcat_title">
     <!-- Touchkey backlight -->
-    <CheckBoxPreference
-                android:key="touchkey_light"
-                android:title="@string/touchkey_light_title_head"
-                android:summary="@string/touchkey_light_summary"
-                android:defaultValue="true"
-                />
+    <ListPreference
+                android:key="touchkey_led_mode"
+                android:title="@string/touchkey_led_mode_title"
+                android:summary="@string/touchkey_led_mode_summary"
+                android:entries="@array/touchkey_led_mode_entries"
+                android:entryValues="@array/touchkey_led_mode_entries_values"
+                android:defaultValue="1" />
     <com.cyanogenmod.settings.device.TouchkeyTimeout
                 android:key="touchkey_timeout"
                 android:title="@string/touchkey_timeout_title_head"

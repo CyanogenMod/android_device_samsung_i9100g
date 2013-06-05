@@ -23,8 +23,8 @@
     <string name="touchscreen_sensitivity_summary_head">Set touch panel sensitivity</string>
 
     <string name="touchkey_subcat_title">Touchkeys</string>
-    <string name="touchkey_light_title_head">Backlight</string>
-    <string name="touchkey_light_summary">Light up touchkeys when screen is on</string>
+    <string name="touchkey_led_mode_title">Backlight trigger area</string>
+    <string name="touchkey_led_mode_summary">Select the area(s) which, upon touch, will cause the touchkeys to light up</string>
     <string name="touchkey_timeout_title_head">Backlight timeout</string>
     <string name="touchkey_timeout_summary_head">Set timeout for the backlight</string>
 
@@ -39,7 +39,7 @@
 
     <string name="category_haptic_title">Haptic</string>
     <string name="vibrator_subcat_title">Vibrator</string>
-    <string name="vibrator_intensity_title_head">Vibrator Intensity</string>
+    <string name="vibrator_intensity_title_head">Vibrator intensity</string>
     <string name="vibrator_intensity_summary_head">Set vibrator intensity</string>
 
     <string name="category_radio_title">Radio</string>
@@ -47,7 +47,7 @@
     <string name="hspa_summary_head">Enable HSDPA/HSUPA</string>
     
     <string name="category_dock_title">Dock</string>
-    <string name="dockaudio_subcat_title">DOCK AUDIO</string>
-    <string name="use_dock_audio_title_head">Use Dock USB Audio</string>
+    <string name="dockaudio_subcat_title">Dock audio</string>
+    <string name="use_dock_audio_title_head">Use Dock USB audio</string>
     <string name="use_dock_audio_summary_head">Use the passive audio out on the dock</string>
 </resources>
