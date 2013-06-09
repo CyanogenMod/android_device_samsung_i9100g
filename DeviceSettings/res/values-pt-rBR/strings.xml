@@ -17,6 +17,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Configurações avançadas</string>
 
+    <string name="defaults_button">Redefinir para padrão</string>
+
     <string name="category_screen_title">Tela</string>
     <string name="touchscreen_subcat_title">Tela sensível ao toque</string>
     <string name="touchscreen_sensitivity_title_head">Sensitividade do toque</string>
@@ -27,9 +29,10 @@
     <string name="touchkey_timeout_summary_head">Quanto tempo a luz de fundo irá ficar acesa depois do botão ser pressionado</string>
 
     <string name="category_haptic_title">Resposta Tátil</string>
-    <string name="vibrator_subcat_title">Vibração</string>
-    <string name="vibrator_intensity_title_head">Intensidade da Vibração</string>
-    <string name="vibrator_intensity_summary_head">Define a intensidade da vibração</string>
+    <string name="vibrator_title">Vibração</string>
+    <string name="vibrator_tuning_title">Intensidade da vibração</string>
+    <string name="vibrator_tuning_summary_head">Ajusar a intensidade da resposta por vibração</string>
+    <string name="vibrator_warning">Valores maiores que %1$d não são recomendados</string>
 
     <string name="accelerometer_subcat_title">Acelerômetro</string>
     <string name="accelerometer_calibration_title_head">Usar dados de calibragem</string>

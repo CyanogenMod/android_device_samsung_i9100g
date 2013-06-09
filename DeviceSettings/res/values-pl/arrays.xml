@@ -37,14 +37,6 @@
         <item>6 sekund</item>
     </string-array>
 
-    <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
-        <item>25%</item>
-        <item>50% (domyślnie)</item>
-        <item>75%</item>
-        <item>100%</item>
-    </string-array>
-
     <string-array name="hspa_entries">
         <item>Tylko UMTS</item>
         <item>Tylko HSDPA</item>

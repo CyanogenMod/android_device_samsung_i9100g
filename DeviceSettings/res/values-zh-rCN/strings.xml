@@ -17,6 +17,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">高级设置</string>
 
+    <string name="defaults_button">还原为默认值</string>
+
     <string name="category_screen_title">屏幕</string>
     <string name="touchscreen_subcat_title">触摸屏</string>
     <string name="touchscreen_sensitivity_title_head">触摸屏灵敏度</string>
@@ -38,9 +40,10 @@
     <string name="accelerometer_dialog_message">感应器已被成功的校准。</string>
 
     <string name="category_haptic_title">振动</string>
-    <string name="vibrator_subcat_title">振动器</string>
-    <string name="vibrator_intensity_title_head">振动器强度</string>
-    <string name="vibrator_intensity_summary_head">设置振动器强度</string>
+    <string name="vibrator_title">振动器</string>
+    <string name="vibrator_tuning_title">振动强度</string>
+    <string name="vibrator_tuning_summary_head">调整振动反馈的强度</string>
+    <string name="vibrator_warning">不建议使用超过 %1$d 的值</string>
 
     <string name="category_radio_title">无线电</string>
     <string name="hspa_title_head">HSPA</string>
