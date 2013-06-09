@@ -20,6 +20,14 @@
     <string name="defaults_button">还原为默认值</string>
 
     <string name="category_screen_title">屏幕</string>
+    <string name="screen_colors_title">色彩</string>
+
+    <string name="cabc_title_head">动态背光控制</string>
+    <string name="cabc_summary_head">启用动态背光控制 (CABC)</string>
+
+    <string name="panel_gamma_title_head">屏幕珈玛</string>
+    <string name="panel_gamma_summary_head">设置屏幕珈玛</string>
+
     <string name="touchscreen_subcat_title">触摸屏</string>
     <string name="touchscreen_sensitivity_title_head">触摸屏灵敏度</string>
     <string name="touchscreen_sensitivity_summary_head">设置触摸屏灵敏度</string>

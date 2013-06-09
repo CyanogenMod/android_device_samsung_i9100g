@@ -38,6 +38,8 @@ public class ScreenFragmentActivity extends PreferenceFragment implements OnPref
 
     private static final String FILE_TOUCHKEY_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
     private static final String FILE_TOUCHKEY_LED_MODE = "/sys/class/sec/sec_touchkey/led_mode";
+    private CABC mCABC;
+    private PanelGamma mPanelGamma;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,12 @@ public class ScreenFragmentActivity extends PreferenceFragment implements OnPref
 
         addPreferencesFromResource(R.xml.screen_preferences);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mCABC = (CABC) findPreference(DeviceSettings.KEY_CABC);
+        mCABC.setEnabled(CABC.isSupported());
+
+        mPanelGamma = (PanelGamma) findPreference(DeviceSettings.KEY_PANEL_GAMMA);
+        mPanelGamma.setEnabled(mPanelGamma.isSupported());
 
         final ListPreference modePref = (ListPreference)findPreference(DeviceSettings.KEY_TOUCHKEY_LED_MODE);
         int mode = Integer.parseInt(modePref.getValue());

@@ -19,6 +19,12 @@
 
     <string name="defaults_button">Herstellen naar standaard</string>
 
+    <string name="category_screen_title">Scherm</string>
+    <string name="screen_colors_title">Kleuren</string>
+
+    <string name="panel_gamma_title_head">Schermgamma</string>
+    <string name="panel_gamma_summary_head">Schermgammawaarden instellen</string>
+
     <string name="touchscreen_subcat_title">Aanraakscherm</string>
     <string name="touchscreen_sensitivity_title_head">Aanraakgevoeligheid</string>
     <string name="touchscreen_sensitivity_summary_head">Gevoeligheid aanraakscherm instellen</string>

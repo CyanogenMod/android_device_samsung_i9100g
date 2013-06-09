@@ -20,6 +20,11 @@
     <string name="defaults_button">Zurücksetzen</string>
 
     <string name="category_screen_title">Bildschirm</string>
+    <string name="screen_colors_title">Farben</string>
+
+    <string name="panel_gamma_title_head">Gamma</string>
+    <string name="panel_gamma_summary_head">Gamma Wert</string>
+
     <string name="touchscreen_subcat_title">Touchscreen</string>
     <string name="touchscreen_sensitivity_title_head">Empfindlichkeit</string>
     <string name="touchscreen_sensitivity_summary_head">Berührungs-Empfindlichkeit</string>
