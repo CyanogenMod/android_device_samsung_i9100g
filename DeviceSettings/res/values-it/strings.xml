@@ -20,6 +20,11 @@
     <string name="defaults_button">Ripristina predefinito</string>
 
     <string name="category_screen_title">Schermo</string>
+    <string name="screen_colors_title">Colori</string>
+
+    <string name="panel_gamma_title_head">Gamma schermo</string>
+    <string name="panel_gamma_summary_head">Imposta il valore gamma dello schermo</string>
+
     <string name="touchscreen_subcat_title">Schermo tattile</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilità tocco</string>
     <string name="touchscreen_sensitivity_summary_head">Imposta la sensibilità al tocco dello schermo</string>

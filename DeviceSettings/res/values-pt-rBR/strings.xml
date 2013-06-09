@@ -20,6 +20,14 @@
     <string name="defaults_button">Redefinir para padrão</string>
 
     <string name="category_screen_title">Tela</string>
+    <string name="screen_colors_title">Cores</string>
+
+    <string name="cabc_title_head">CCLA</string>
+    <string name="cabc_summary_head">Ativar conteúdo do controle de luz de fundo adaptativo</string>
+
+    <string name="panel_gamma_title_head">Gama da Tela</string>
+    <string name="panel_gamma_summary_head">Define valor da gama da tela</string>
+
     <string name="touchscreen_subcat_title">Tela sensível ao toque</string>
     <string name="touchscreen_sensitivity_title_head">Sensitividade do toque</string>
     <string name="touchscreen_sensitivity_summary_head">Define a sensitividade do toque na tela</string>

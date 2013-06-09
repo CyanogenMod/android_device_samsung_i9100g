@@ -17,6 +17,11 @@
     <string name="app_name">Paramètres avancés</string>
     <string name="defaults_button">Réinitialiser</string>
     <string name="category_screen_title">Écran</string>
+    <string name="screen_colors_title">Couleurs</string>
+    <string name="cabc_title_head">CABC</string>
+    <string name="cabc_summary_head">Activer le contrôle adaptatif du rétroéclairage</string>
+    <string name="panel_gamma_title_head">Gamma écran</string>
+    <string name="panel_gamma_summary_head">Définir la valeur de gamma de l\'écran</string>
     <string name="touchscreen_subcat_title">Tactile</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilité</string>
     <string name="touchscreen_sensitivity_summary_head">Définir la sensibilité du toucher</string>

@@ -14,7 +14,26 @@
      limitations under the License.
  -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+                android:title="@string/screen_colors_title">
+        <!-- CABC -->
+    <com.cyanogenmod.settings.device.CABC
+                android:key="cabc"
+                android:title="@string/cabc_title_head"
+                android:summary="@string/cabc_summary_head"
+                android:defaultValue="true" />
 
+        <!-- Panel gamma -->
+        <com.cyanogenmod.settings.device.PanelGamma
+                android:key="panel_gamma"
+                android:title="@string/panel_gamma_title_head"
+                android:summary="@string/panel_gamma_summary_head"
+                android:entries="@array/panel_gamma_entries"
+                android:entryValues="@array/panel_gamma_entries_values"
+                android:defaultValue="0" />
+    </PreferenceCategory>
+
+    <!-- Touchscreen -->
     <PreferenceCategory
                 android:title="@string/touchscreen_subcat_title">
     <com.cyanogenmod.settings.device.TouchscreenSensitivity
