@@ -36,9 +36,6 @@
     <string name="accelerometer_dialog_message">Akcelerometr został poprawnie skalibrowany.</string>
 
     <string name="category_haptic_title">Dotyk</string>
-    <string name="vibrator_subcat_title">Wibracje</string>
-    <string name="vibrator_intensity_title_head">Intensywność wibracji</string>
-    <string name="vibrator_intensity_summary_head">Ustaw intensywność wibracji</string>
 
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
