@@ -14,6 +14,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="panel_gamma_entries">
+        <item>2.2 (Défaut)</item>
+        <item>1.9</item>
+    </string-array>
     <string-array name="touchscreen_sensitivity_entries">
         <item>10</item>
         <item>20</item>

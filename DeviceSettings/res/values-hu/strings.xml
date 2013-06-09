@@ -18,6 +18,11 @@
     <string name="app_name">Galaxy S II Beállítások</string>
 
     <string name="category_screen_title">Kijelző</string>
+
+    <string name="screen_colors_title">Színek</string>
+    <string name="panel_gamma_title_head">Kijelző gamma-értéke</string>
+    <string name="panel_gamma_summary_head">Kijelző gamma-érték beállítása</string>
+
     <string name="touchscreen_subcat_title">Érintőképernyő</string>
     <string name="touchscreen_sensitivity_title_head">Érzékenység</string>
     <string name="touchscreen_sensitivity_summary_head">Érintőképernyő érzékenységének beállítása</string>

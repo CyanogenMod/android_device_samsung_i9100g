@@ -18,6 +18,10 @@
     <string name="app_name">Galaxy S II-asetukset</string>
 
     <string name="category_screen_title">Näyttö</string>
+    <string name="screen_colors_title">Värit</string>
+    <string name="panel_gamma_title_head">Näytön gamma</string>
+    <string name="panel_gamma_summary_head">Säädä näytön gamma-arvo</string>
+
     <string name="touchscreen_subcat_title">Kosketusnäyttö</string>
     <string name="touchscreen_sensitivity_title_head">Kosketuksen herkkyys</string>
     <string name="touchscreen_sensitivity_summary_head">Säädä näytön herkkyyttä</string>
