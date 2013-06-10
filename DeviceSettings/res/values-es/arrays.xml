@@ -43,4 +43,9 @@
         <item>Sólo HSDPA</item>
         <item>HSDPA + HSUPA</item>
     </string-array>
+    <string-array name="touchkey_led_mode_entries">
+        <item>Ninguna (retroilum. apagada)</item>
+        <item>Sólo teclas táctiles</item>
+        <item>Teclas táctiles y pantalla</item>
+    </string-array>
 </resources>
