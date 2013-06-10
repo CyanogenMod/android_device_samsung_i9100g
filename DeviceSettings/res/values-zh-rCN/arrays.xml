@@ -51,4 +51,10 @@
         <item>使用 HSDPA + HSUPA</item>
     </string-array>
 
+    <string-array name="touchkey_led_mode_entries">
+        <item>无 (禁用背光灯)</item>
+        <item>仅触摸键</item>
+        <item>触摸键与触摸屏</item>
+    </string-array>
+
 </resources>

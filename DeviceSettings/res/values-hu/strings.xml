@@ -23,8 +23,6 @@
     <string name="touchscreen_sensitivity_summary_head">Érintőképernyő érzékenységének beállítása</string>
 
     <string name="touchkey_subcat_title">Érintőgombok</string>
-    <string name="touchkey_light_title_head">Érintőgombok háttérvilágítása</string>
-    <string name="touchkey_light_summary">Bekapcsolja az érintőgombok háttérvilágítását bekapcsolt képernyőnél</string>
     <string name="touchkey_timeout_title_head">Háttérvilágítás időkorlátja</string>
     <string name="touchkey_timeout_summary_head">Háttérvilágítás késleltetése</string>
 
