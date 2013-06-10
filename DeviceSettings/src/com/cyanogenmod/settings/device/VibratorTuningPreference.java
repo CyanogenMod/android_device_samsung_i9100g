@@ -51,19 +51,18 @@ public class VibratorTuningPreference extends DialogPreference implements SeekBa
     private static int DEFAULT_VALUE;
     private static int MIN_VALUE;
 
+    private Context mContext;
     private SeekBar mSeekBar;
     private TextView mValue;
     private TextView mWarning;
-
     private String mOriginalValue;
-    private int mOriginalPercent;
-
     private Drawable mProgressDrawable;
     private Drawable mProgressThumb;
     private LightingColorFilter mRedFilter;
 
     public VibratorTuningPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
 
         FILE_PATH = context.getResources().getString(R.string.vibrator_sysfs_file);
         MAX_VALUE = Integer.valueOf(context.getResources().getString(R.string.intensity_max_value));
@@ -103,11 +102,15 @@ public class VibratorTuningPreference extends DialogPreference implements SeekBa
         mRedFilter = new LightingColorFilter(Color.BLACK,
                 getContext().getResources().getColor(android.R.color.holo_red_light));
 
+        // Read the current value from sysfs in case user wants to dismiss his changes
         mOriginalValue = Utils.readOneLine(FILE_PATH);
-        mOriginalPercent = strengthToPercent(Integer.parseInt(mOriginalValue));
+
+        // Restore percent value from SharedPreferences object
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(mContext);
+        int percent = settings.getInt("percent", strengthToPercent(DEFAULT_VALUE));
 
         mSeekBar.setOnSeekBarChangeListener(this);
-        mSeekBar.setProgress(Integer.valueOf(mOriginalPercent));
+        mSeekBar.setProgress(Integer.valueOf(percent));
     }
 
     @Override
@@ -131,10 +134,10 @@ public class VibratorTuningPreference extends DialogPreference implements SeekBa
         super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
-            Editor editor = getEditor();
-
-            int strength = percentToStrength(mSeekBar.getProgress());
-            editor.putString(FILE_PATH, String.valueOf(strength));
+            // Store percent value in SharedPreferences object
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(mContext);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("percent", mSeekBar.getProgress());
             editor.commit();
         } else {
             Utils.writeValue(FILE_PATH, String.valueOf(mOriginalValue));
@@ -148,13 +151,15 @@ public class VibratorTuningPreference extends DialogPreference implements SeekBa
             return;
         }
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        final String value = prefs.getString(FILE_PATH, null);
+        MAX_VALUE = Integer.valueOf(context.getResources().getString(R.string.intensity_max_value));
+        DEFAULT_VALUE = Integer.valueOf(context.getResources().getString(R.string.intensity_default_value));
+        MIN_VALUE = Integer.valueOf(context.getResources().getString(R.string.intensity_min_value));
 
-        if (value != null) {
-            Log.d(TAG, "Restoring vibration setting: " + value);
-            Utils.writeValue(FILE_PATH, value);
-        }
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        int strength = percentToStrength(settings.getInt("percent", strengthToPercent(DEFAULT_VALUE)));
+
+        Log.d(TAG, "Restoring vibration setting: " + strength);
+        Utils.writeValue(FILE_PATH, String.valueOf(strength));
     }
 
     public static boolean isSupported(String filePath) {

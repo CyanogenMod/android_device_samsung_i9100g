@@ -41,7 +41,6 @@ public class DeviceSettings extends FragmentActivity {
     public static final String KEY_TOUCHSCREEN_SENSITIVITY = "touchscreen_sensitivity";
     public static final String KEY_TOUCHKEY_LED_MODE = "touchkey_led_mode";
     public static final String KEY_TOUCHKEY_TIMEOUT = "touchkey_timeout";
-    public static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
     public static final String KEY_ACCELEROMETER_CALIBRATION = "accelerometer_calibration";
     public static final String KEY_ACCELEROMETER_CALIBRATE = "accelerometer_calibrate";
     public static final String KEY_USE_DOCK_AUDIO = "dock_audio";
@@ -157,3 +156,4 @@ public class DeviceSettings extends FragmentActivity {
         }
     }
 }
+
