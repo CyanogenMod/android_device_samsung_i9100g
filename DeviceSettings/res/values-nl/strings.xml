@@ -15,7 +15,16 @@
  -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Galaxy S II-instellingen</string>
+    <string name="app_name">Geavanceerde instellingen</string>
+
+    <string name="defaults_button">Herstellen naar standaard</string>
+
+    <string name="category_screen_title">Scherm</string>
+    <string name="screen_colors_title">Kleuren</string>
+
+    <string name="panel_gamma_title_head">Schermgamma</string>
+    <string name="panel_gamma_summary_head">Schermgammawaarden instellen</string>
+
     <string name="touchscreen_subcat_title">Aanraakscherm</string>
     <string name="touchscreen_sensitivity_title_head">Aanraakgevoeligheid</string>
     <string name="touchscreen_sensitivity_summary_head">Gevoeligheid aanraakscherm instellen</string>
@@ -34,9 +43,9 @@
     <string name="accelerometer_dialog_message">De sensor is succesvol gekalibreerd.</string>
 
     <string name="category_haptic_title">Trillen</string>
-    <string name="vibrator_subcat_title">Trillen</string>
-    <string name="vibrator_intensity_title_head">Trilintensiteit</string>
-    <string name="vibrator_intensity_summary_head">Trilintensiteit instellen</string>
+    <string name="vibrator_title">Trilapparaat</string>
+    <string name="vibrator_tuning_title">Trilsterkte</string>
+    <string name="vibrator_tuning_summary_head">Sterkte instellen van trillen</string>
 
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>

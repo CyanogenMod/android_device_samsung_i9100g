@@ -15,7 +15,13 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Paramètres avancés</string>
+    <string name="defaults_button">Réinitialiser</string>
     <string name="category_screen_title">Écran</string>
+    <string name="screen_colors_title">Couleurs</string>
+    <string name="cabc_title_head">CABC</string>
+    <string name="cabc_summary_head">Activer le contrôle adaptatif du rétroéclairage</string>
+    <string name="panel_gamma_title_head">Gamma écran</string>
+    <string name="panel_gamma_summary_head">Définir la valeur de gamma de l\'écran</string>
     <string name="touchscreen_subcat_title">Tactile</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilité</string>
     <string name="touchscreen_sensitivity_summary_head">Définir la sensibilité du toucher</string>
@@ -31,9 +37,10 @@
     <string name="accelerometer_dialog_head">Calibrage terminé</string>
     <string name="accelerometer_dialog_message">Le capteur a été correctement calibré.</string>
     <string name="category_haptic_title">Haptique</string>
-    <string name="vibrator_subcat_title">Vibreur</string>
-    <string name="vibrator_intensity_title_head">Intensité du vibreur</string>
-    <string name="vibrator_intensity_summary_head">Définir l\'intensité du vibreur</string>
+    <string name="vibrator_title">Vibreur</string>
+    <string name="vibrator_tuning_title">Intensité du vibreur</string>
+    <string name="vibrator_tuning_summary_head">Définir l\'intensité du vibreur</string>
+    <string name="vibrator_warning">Les valeurs supérieurs à %1$d ne sont pas recommandées</string>
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Activer HSDPA/HSUPA</string>

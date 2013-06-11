@@ -24,14 +24,16 @@ public class Startup extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, final Intent bootintent) {
+        CABC.restore(context);
         DockFragmentActivity.restore(context);
         HapticFragmentActivity.restore(context);
         Hspa.restore(context);
+        PanelGamma.restore(context);
         RadioFragmentActivity.restore(context);
         ScreenFragmentActivity.restore(context);
         SensorsFragmentActivity.restore(context);
         TouchkeyTimeout.restore(context);
         TouchscreenSensitivity.restore(context);
-        VibratorIntensity.restore(context);
+        VibratorTuningPreference.restore(context);
     }
 }

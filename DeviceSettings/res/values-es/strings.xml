@@ -16,7 +16,13 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Ajustes avanzados</string>
+    <string name="defaults_button">Restablecer</string>
     <string name="category_screen_title">Pantalla</string>
+    <string name="screen_colors_title">Colores</string>
+    <string name="cabc_title_head">Brillo adaptativo</string>
+    <string name="cabc_summary_head">Activar el control de brillo adaptado al contenido</string>
+    <string name="panel_gamma_title_head">Gamma</string>
+    <string name="panel_gamma_summary_head">Establece el valor Gamma de la pantalla</string>
     <string name="touchscreen_subcat_title">Pantalla táctil</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilidad táctil</string>
     <string name="touchscreen_sensitivity_summary_head">Establecer la sensibilidad del panel táctil</string>
@@ -32,9 +38,10 @@
     <string name="accelerometer_dialog_head">Calibración realizada</string>
     <string name="accelerometer_dialog_message">El sensor ha sido calibrado satisfactoriamente</string>
     <string name="category_haptic_title">Háptica</string>
-    <string name="vibrator_subcat_title">Vibración</string>
-    <string name="vibrator_intensity_title_head">Intensidad de vibración</string>
-    <string name="vibrator_intensity_summary_head">Establecer la intensidad de vibración</string>
+    <string name="vibrator_title">Vibración</string>
+    <string name="vibrator_tuning_title">Intensidad de vibración</string>
+    <string name="vibrator_tuning_summary_head">Establecer la intensidad de vibración</string>
+    <string name="vibrator_warning">No son recomendables valores mayores de %1$d</string>
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Habilitar HSDPA/HSUPA</string>

@@ -16,30 +16,30 @@
 
 package com.cyanogenmod.settings.device;
 
-import java.io.IOException;
 import android.content.Context;
-import android.util.AttributeSet;
+import android.util.Log;
 import android.content.SharedPreferences;
+import android.util.AttributeSet;
 import android.preference.Preference;
 import android.preference.ListPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
 
-public class VibratorIntensity extends ListPreference implements OnPreferenceChangeListener {
+public class PanelGamma extends ListPreference implements OnPreferenceChangeListener {
 
-    public VibratorIntensity(Context context, AttributeSet attrs) {
+    public PanelGamma(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setOnPreferenceChangeListener(this);
     }
 
-    private static final String FILE = "/sys/vibrator/pwmvalue";
+    private static final String FILE = "/sys/class/lcd/panel/gamma_mode";
 
     public static boolean isSupported() {
         return Utils.fileExists(FILE);
     }
 
     /**
-     * Restore vibrator intensity setting from SharedPreferences. (Write to kernel.)
+     * Restore panel gamma setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
      */
     public static void restore(Context context) {
@@ -48,10 +48,11 @@ public class VibratorIntensity extends ListPreference implements OnPreferenceCha
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_VIBRATOR_INTENSITY, "64"));
+        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_PANEL_GAMMA, "0"));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        Log.d("SGS2","Writing " + ((String)newValue) + " to " + FILE);
         Utils.writeValue(FILE, (String) newValue);
         return true;
     }

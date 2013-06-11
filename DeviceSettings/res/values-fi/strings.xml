@@ -18,6 +18,10 @@
     <string name="app_name">Galaxy S II-asetukset</string>
 
     <string name="category_screen_title">Näyttö</string>
+    <string name="screen_colors_title">Värit</string>
+    <string name="panel_gamma_title_head">Näytön gamma</string>
+    <string name="panel_gamma_summary_head">Säädä näytön gamma-arvo</string>
+
     <string name="touchscreen_subcat_title">Kosketusnäyttö</string>
     <string name="touchscreen_sensitivity_title_head">Kosketuksen herkkyys</string>
     <string name="touchscreen_sensitivity_summary_head">Säädä näytön herkkyyttä</string>
@@ -36,9 +40,6 @@
     <string name="accelerometer_dialog_message">Sensori kalibroitu onnistuneesti</string>
 
     <string name="category_haptic_title">Haptinen</string>
-    <string name="vibrator_subcat_title">Värinä</string>
-    <string name="vibrator_intensity_title_head">Värinän voimakkuus</string>
-    <string name="vibrator_intensity_summary_head">Säädä värinän voimakkuutta</string>
 
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>

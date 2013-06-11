@@ -15,9 +15,16 @@
  -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Galaxy S II Einstellungen</string>
+    <string name="app_name">Erweiterte Einstellungen</string>
+
+    <string name="defaults_button">Zurücksetzen</string>
 
     <string name="category_screen_title">Bildschirm</string>
+    <string name="screen_colors_title">Farben</string>
+
+    <string name="panel_gamma_title_head">Gamma</string>
+    <string name="panel_gamma_summary_head">Gamma Wert</string>
+
     <string name="touchscreen_subcat_title">Touchscreen</string>
     <string name="touchscreen_sensitivity_title_head">Empfindlichkeit</string>
     <string name="touchscreen_sensitivity_summary_head">Berührungs-Empfindlichkeit</string>
@@ -35,10 +42,11 @@
     <string name="accelerometer_dialog_head">Kalibrierung beendet</string>
     <string name="accelerometer_dialog_message">Der Beschleunigungssensor wurde kalibriert</string>
 
-    <string name="category_haptic_title">Haptik</string>
-    <string name="vibrator_subcat_title">Vibration</string>
-    <string name="vibrator_intensity_title_head">Intensität</string>
-    <string name="vibrator_intensity_summary_head">Vibrations-Intensität</string>
+    <string name="category_haptic_title">Haptik</string> 
+    <string name="vibrator_title">Vibrator</string> 
+    <string name="vibrator_tuning_title">Vibrationsstärke</string> 
+    <string name="vibrator_tuning_summary_head">Stärke des Vibrationseffektes einstellen</string> 
+    <string name="vibrator_warning">Vorsicht: Höhere Werte als %1$d werden nicht empfohlen</string> 
 
     <string name="category_radio_title">Mobilfunk</string>
     <string name="hspa_title_head">HSPA</string>

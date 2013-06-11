@@ -15,9 +15,16 @@
  -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Impostazioni Galaxy S II</string>
+    <string name="app_name">Opzioni avanzate</string>
+
+    <string name="defaults_button">Ripristina predefinito</string>
 
     <string name="category_screen_title">Schermo</string>
+    <string name="screen_colors_title">Colori</string>
+
+    <string name="panel_gamma_title_head">Gamma schermo</string>
+    <string name="panel_gamma_summary_head">Imposta il valore gamma dello schermo</string>
+
     <string name="touchscreen_subcat_title">Schermo tattile</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilità tocco</string>
     <string name="touchscreen_sensitivity_summary_head">Imposta la sensibilità al tocco dello schermo</string>
@@ -35,10 +42,11 @@
     <string name="accelerometer_dialog_head">Calibrazione effettuata</string>
     <string name="accelerometer_dialog_message">Il sensore è stato correttamente calibrato.</string>
 
-    <string name="category_haptic_title">Feedback tattile</string>
-    <string name="vibrator_subcat_title">Vibratore</string>
-    <string name="vibrator_intensity_title_head">Intensità vibrazione</string>
-    <string name="vibrator_intensity_summary_head">Imposta l\'intensità della vibrazione</string>
+    <string name="category_haptic_title">Aptico</string>
+    <string name="vibrator_title">Vibrazione</string>
+    <string name="vibrator_tuning_title">Intensità vibrazione</string>
+    <string name="vibrator_tuning_summary_head">Modifica l\'intensità della vibrazione del feedback aptico</string>
+    <string name="vibrator_warning">Valori superiori a %1$d non sono raccomandati</string>
 
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>

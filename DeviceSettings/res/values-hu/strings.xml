@@ -18,6 +18,11 @@
     <string name="app_name">Galaxy S II Beállítások</string>
 
     <string name="category_screen_title">Kijelző</string>
+
+    <string name="screen_colors_title">Színek</string>
+    <string name="panel_gamma_title_head">Kijelző gamma-értéke</string>
+    <string name="panel_gamma_summary_head">Kijelző gamma-érték beállítása</string>
+
     <string name="touchscreen_subcat_title">Érintőképernyő</string>
     <string name="touchscreen_sensitivity_title_head">Érzékenység</string>
     <string name="touchscreen_sensitivity_summary_head">Érintőképernyő érzékenységének beállítása</string>
@@ -36,9 +41,6 @@
     <string name="accelerometer_dialog_message">Az érzékelő sikeresen bekalibrálva.</string>
 
     <string name="category_haptic_title">Érintési visszajelzés</string>
-    <string name="vibrator_subcat_title">Rezgés</string>
-    <string name="vibrator_intensity_title_head">Rezgés erőssége</string>
-    <string name="vibrator_intensity_summary_head">Rezgés erősségének beállítása</string>
 
     <string name="category_radio_title">GSM Rádió</string>
     <string name="hspa_title_head">HSPA</string>
