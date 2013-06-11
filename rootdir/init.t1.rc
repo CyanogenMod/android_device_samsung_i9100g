@@ -24,10 +24,6 @@ on init
 on fs
     mount_all /fstab.t1
 
-# j4fs module
-    insmod /system/lib/modules/j4fs.ko
-    mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs
-
 # pvr module
     insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
 
