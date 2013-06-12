@@ -42,4 +42,9 @@
         <item>HSDPA seulement</item>
         <item>HSDPA + HSUPA</item>
     </string-array>
+    <string-array name="touchkey_led_mode_entries">
+        <item>Aucune (Désactiver le rétroéclairage)</item>
+        <item>Seulement les boutons tactiles</item>
+        <item>Écran et boutons tactiles</item>
+    </string-array>
 </resources>
