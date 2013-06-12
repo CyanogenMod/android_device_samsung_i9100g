@@ -20,10 +20,10 @@
 
     <!-- Vibrator Tuning -->
     <bool name="has_vibrator_tuning">true</bool>
-    <string name="vibrator_sysfs_file">"/sys/vibrator/pwmvalue"</string>
-    <string name="intensity_max_value">127</string>
-    <string name="intensity_warning_threshold">96</string>
-    <string name="intensity_default_value">64</string>
-    <string name="intensity_min_value">0</string>
+    <string name="vibrator_sysfs_file" translatable="false">"/sys/vibrator/pwmvalue"</string>
+    <string name="intensity_max_value" translatable="false">127</string>
+    <string name="intensity_warning_threshold" translatable="false">96</string>
+    <string name="intensity_default_value" translatable="false">64</string>
+    <string name="intensity_min_value" translatable="false">0</string>
 
 </resources>
