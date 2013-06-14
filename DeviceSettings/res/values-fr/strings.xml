@@ -23,6 +23,8 @@
     <string name="panel_gamma_title_head">Gamma écran</string>
     <string name="panel_gamma_summary_head">Définir la valeur de gamma de l\'écran</string>
     <string name="touchscreen_subcat_title">Tactile</string>
+    <string name="touchkey_led_mode_title">Zone d\'activation du rétroéclairage</string>
+    <string name="touchkey_led_mode_summary">Sélectionner la ou les zones qui, au toucher, activent le rétroéclairage des boutons tactiles</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilité</string>
     <string name="touchscreen_sensitivity_summary_head">Définir la sensibilité du toucher</string>
     <string name="touchkey_subcat_title">Touches tactiles</string>
