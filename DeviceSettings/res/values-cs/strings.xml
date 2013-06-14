@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Pokročilé nastavení</string>
+    <string name="defaults_button">Obnovit výchozí</string>
+    <string name="category_screen_title">Obrazovka</string>
+    <string name="screen_colors_title">Barvy</string>
+    <string name="cabc_summary_head">Povolit přizpůsobení podsvícení podle zobrazovaného obsahu</string>
+    <string name="panel_gamma_title_head">Gamma obrazovky</string>
+    <string name="panel_gamma_summary_head">Nastavit hodnotu gamma pro obrazovku</string>
+    <string name="touchscreen_subcat_title">Dotykové ovládání</string>
+    <string name="touchscreen_sensitivity_title_head">Citlivost dotyků</string>
+    <string name="touchscreen_sensitivity_summary_head">Nastavit citlivost dotykového panelu</string>
+    <string name="touchkey_subcat_title">Dotyková tlačítka</string>
+    <string name="touchkey_led_mode_title">Oblast aktivace podsvícení</string>
+    <string name="touchkey_led_mode_summary">Zvolte oblast nebo oblasti obrazovky, které po dotyku aktivují podsvícení tlačítek</string>
+    <string name="touchkey_timeout_title_head">Prodleva vypnutí podsvícení</string>
+    <string name="touchkey_timeout_summary_head">Zpoždění pro vypnutí podsvícení tlačítek po dotyku</string>
+    <string name="category_sensors_title">Senzory</string>
+    <string name="accelerometer_subcat_title">Akcelerometr</string>
+    <string name="accelerometer_calibration_title_head">Použít data kalibrace</string>
+    <string name="accelerometer_calibration_summary_head">Použít kalibrační data pro akcelerometr. Po zvolení proveďte kalibraci!</string>
+    <string name="accelerometer_calibrate_title_head">Kalibrace</string>
+    <string name="accelerometer_calibrate_summary_head">Položte telefon na rovný povrch a stiskněte toto tlačítko pro provedení kalibrace</string>
+    <string name="accelerometer_dialog_head">Kalibrace provedena</string>
+    <string name="accelerometer_dialog_message">Akcelerometr byl úspěšně zkalibrován.</string>
+    <string name="category_haptic_title">Hmatová odezva</string>
+    <string name="vibrator_title">Vibrace</string>
+    <string name="vibrator_tuning_title">Síla vibrace</string>
+    <string name="vibrator_tuning_summary_head">Upravení síly vibrací zpětné vazby</string>
+    <string name="vibrator_warning">Hodnoty větší než %1$d nejsou doporučovány</string>
+    <string name="category_radio_title">Rádio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Povolit HSDPA/HSUPA</string>
+    <string name="category_dock_title">Dok</string>
+    <string name="dockaudio_subcat_title">Zvuk</string>
+    <string name="use_dock_audio_title_head">Použít zvuk doku přes USB</string>
+    <string name="use_dock_audio_summary_head">Použít pasivní zvukový výstup v doku</string>
+</resources>
