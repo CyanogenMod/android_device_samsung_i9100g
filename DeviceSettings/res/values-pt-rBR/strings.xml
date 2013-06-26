@@ -59,4 +59,6 @@
     <string name="use_dock_audio_title_head">Usar áudio USB do dock</string>
     <string name="use_dock_audio_summary_head">Usar a saída de áudio passiva no dock</string>
     <string name="category_sensors_title">Sensores</string>
+    <string name="touchkey_led_mode_title">Área p/ acionar a luz de fundo</string>
+    <string name="touchkey_led_mode_summary">Selecione a(s) área(s) em que, ao tocar, irá acender as botões</string>
 </resources>
