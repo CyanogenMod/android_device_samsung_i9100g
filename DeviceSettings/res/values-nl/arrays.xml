@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,9 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="panel_gamma_entries">
         <item>2,2 (standaard)</item>
         <item>1,9</item>
@@ -48,4 +46,9 @@
         <item>HSDPA &amp; HSUPA</item>
     </string-array>
 
+    <string-array name="touchkey_led_mode_entries">
+        <item>Geen (verlichting uitschakelen)</item>
+        <item>Alleen aanraakknoppen</item>
+        <item>Aanraakknoppen en -scherm</item>
+    </string-array>
 </resources>
