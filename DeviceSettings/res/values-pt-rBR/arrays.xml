@@ -40,4 +40,9 @@
         <item>Somente HSDPA</item>
         <item>HSDPA + HSUPA</item>
     </string-array>
+    <string-array name="touchkey_led_mode_entries">
+        <item>Nenhum (desativar luz de fundo)</item>
+        <item>Somente teclas</item>
+        <item>Teclas e tela</item>
+    </string-array>
 </resources>
