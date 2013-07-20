@@ -1,0 +1,37 @@
+# GFX
+/dev/dsscomp                                u:object_r:video_device:s0
+/dev/pvrsrvkm                               u:object_r:powervr_device:s0
+
+# RIL
+/dev/umts_boot0                             u:object_r:radio_device:s0
+/dev/umts_boot1                             u:object_r:radio_device:s0
+/dev/umts_ipc0                              u:object_r:radio_device:s0
+/dev/umts_ramdump0                          u:object_r:radio_device:s0
+/dev/umts_rfs0                              u:object_r:radio_device:s0
+
+/dev/block/mmcblk0p7                        u:object_r:efs_block_device:s0
+
+/efs/bluetooth/(/.*)?                       u:object_r:bluetooth_efs_file:s0
+/efs/imei/mps_code.dat                      u:object_r:radio_data_file:s0
+/efs/nv_data.bin                            u:object_r:radio_data_file:s0
+/efs/nv_data.bin.md5                        u:object_r:radio_data_file:s0
+/efs/upgaddr                                u:object_r:efs_file:s0
+
+# Bluetooth
+/dev/ttyO1                                  u:object_r:hci_attach_dev:s0
+
+# GPS
+/dev/ttyO0                                  u:object_r:gps_device:s0
+
+# Sensors
+/dev/akm8975                                u:object_r:sensors_device:s0
+
+# for wpa_supp
+/dev/rfkill                                 u:object_r:rfkill_device:s0
+
+# System binaries
+/system/vendor/bin/pvrsrvinit               u:object_r:pvrsrvinit_exec:s0
+/system/vendor/bin/pvrsrvinit_SGX540_120    u:object_r:pvrsrvinit_exec:s0
+
+# Firmwares
+/system/vendor/firmware/ducati-m3.bin       u:object_r:firmware_ducati:s0

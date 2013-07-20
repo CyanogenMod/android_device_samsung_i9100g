@@ -1,2 +1,0 @@
-# This proc entry is for CSR GPS chip on Samsung T1 Board.
-genfscon proc /mcspi1_cs3_ctrl u:object_r:gps_control:s0
