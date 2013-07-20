@@ -1,0 +1,12 @@
+# pvrsrvinit
+type pvrsrvinit, domain;
+type pvrsrvinit_exec, exec_type, file_type;
+
+init_daemon_domain(pvrsrvinit)
+
+allow pvrsrvinit kernel:system module_request;
+allow pvrsrvinit self:capability { sys_module };
+allow pvrsrvinit system_file:file x_file_perms;
+allow pvrsrvinit shell_exec:file rx_file_perms;
+allow pvrsrvinit pvrsrvinit_exec:file rx_file_perms;
+allow pvrsrvinit property_socket:sock_file write;
