@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Galaxy S II Ayarları</string>
+
+    <string name="category_screen_title">Ekran</string>
+    <string name="touchscreen_subcat_title">Dokunmatik Ekran</string>
+    <string name="touchscreen_sensitivity_title_head">Dokunma Hassaslığı</string>
+    <string name="touchscreen_sensitivity_summary_head">Dokunma paneli hassaslığını ayarlayın</string>
+
+    <string name="touchkey_subcat_title">Dokunmatik Tuşlar</string>
+    <string name="touchkey_light_title_head">Arka ışık</string>
+    <string name="touchkey_light_summary">Ekran açıkken dokunmatik tuşların ışığını aç</string>
+    <string name="touchkey_timeout_title_head">Arka ışık zaman aşımı</string>
+    <string name="touchkey_timeout_summary_head">Arka ışık zaman aşımını ayarlayın</string>
+
+    <string name="category_sensors_title">Sensörler</string>
+    <string name="accelerometer_subcat_title">İvmeölçer</string>
+    <string name="accelerometer_calibration_title_head">Kalibrasyon verisi kullan</string>
+    <string name="accelerometer_calibration_summary_head">İvmeölçer kalibrasyon değerlerini kullan. Bunu işaretledikten sonra kalibrasyon yapın!</string>
+    <string name="accelerometer_calibrate_title_head">Kalibrasyon</string>
+    <string name="accelerometer_calibrate_summary_head">Telefonunuzu düz bir zemine koyun, ve kalibrasyon için buna basın</string>
+    <string name="accelerometer_dialog_head">Kalibrasyon tamamlandı</string>
+    <string name="accelerometer_dialog_message">Sensör başarılı bir şekilde kalibre edildi.</string>
+
+    <string name="category_haptic_title">Haptik</string>
+    <string name="vibrator_subcat_title">Titreşim</string>
+    <string name="vibrator_intensity_title_head">Titreşim yoğunluğu</string>
+    <string name="vibrator_intensity_summary_head">Titreşim yoğunluğunu ayarlayın</string>
+
+    <string name="category_radio_title">Radyo</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Açık HSDPA/HSUPA</string>
+    
+    <string name="category_dock_title">Yuva</string>
+    <string name="dockaudio_subcat_title">SES YUVASI</string>
+    <string name="use_dock_audio_title_head">USB Ses Yuva aygıtı kullan</string>
+    <string name="use_dock_audio_summary_head">Yuvadayken pasif ses çıkışı kullan</string>
+</resources>
