@@ -95,6 +95,7 @@ BOARD_BLUEDROID_VENDOR_CONF := device/samsung/i9100g/bluetooth/vnd_i9100g.txt
 BOARD_USES_SECURE_SERVICES := true
 
 # Recovery
+RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/i9100g/recovery/recovery_keys.c
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun0/file"
