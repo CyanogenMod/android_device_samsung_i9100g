@@ -94,13 +94,6 @@ BOARD_BLUEDROID_VENDOR_CONF := device/samsung/i9100g/bluetooth/vnd_i9100g.txt
 # Security
 BOARD_USES_SECURE_SERVICES := true
 
-BOARD_SEPOLICY_DIRS := \
-        device/samsung/i9100g/sepolicy
-
-BOARD_SEPOLICY_UNION := \
-        genfs_contexts \
-        file_contexts
-
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/i9100g/recovery/recovery_keys.c
