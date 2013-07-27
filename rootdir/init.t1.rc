@@ -63,7 +63,6 @@ on fs
 
     setprop ro.build.product GT-I9100G
     setprop ro.product.device GT-I9100G
-    setprop ro.radio.noril yes
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
