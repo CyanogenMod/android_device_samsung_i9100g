@@ -1,22 +1,21 @@
 # Android fstab file.
-#<src>                                               <mnt_point><type>   <mnt_flags and options>                                       <fs_mgr_flags>
+# <src>		<mnt_point>		<type>		<mnt_flags and options>		<fs_mgr_flags>
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 # data partition must be located at the bottom for supporting device encryption
-
-/dev/block/platform/omap/omap_hsmmc.1/by-name/FACTORYFS /system     ext4    ro,noatime                                                 wait
-/dev/block/platform/omap/omap_hsmmc.1/by-name/CACHE     /cache      ext4    noatime,nosuid,nodev,errors=panic                          wait,check
-/dev/block/platform/omap/omap_hsmmc.1/by-name/EFS       /efs        ext4    noatime,nosuid,nodev,errors=panic                          wait,check
-/dev/block/platform/omap/omap_hsmmc.1/by-name/HIDDEN    /preload    ext4    noatime,nosuid,nodev
-/dev/block/platform/omap/omap_hsmmc.1/by-name/DATAFS    /data       ext4    noatime,nosuid,nodev,errors=panic,discard,noauto_da_alloc  wait,check,encryptable=/efs/metadata
+/dev/block/platform/omap/omap_hsmmc.1/by-name/FACTORYFS		/system			ext4		ro,noatime		wait
+/dev/block/platform/omap/omap_hsmmc.1/by-name/CACHE			/cache			ext4		noatime,nosuid,nodev,errors=panic		wait,check
+/dev/block/platform/omap/omap_hsmmc.1/by-name/EFS			/efs			ext4		noatime,nosuid,nodev,errors=panic		wait,check
+/dev/block/platform/omap/omap_hsmmc.1/by-name/HIDDEN		/preload		ext4		noatime,nosuid,nodev		wait
+/dev/block/platform/omap/omap_hsmmc.1/by-name/DATAFS		/data			ext4		noatime,nosuid,nodev,errors=panic,discard,noauto_da_alloc		wait,check,encryptable=/efs/metadata
 
 # vold-managed volumes ("block device" is actually a sysfs devpath)
-/devices/platform/omap/omap_hsmmc.1/mmc_host/mmc0       /storage/sdcard0    vfat    defaults    voldmanaged=sdcard0:11,nonremovable
-/devices/platform/omap/omap_hsmmc.0/mmc_host/mmc1       /storage/sdcard1    auto    defaults    voldmanaged=sdcard1:auto
-/devices/platform/omap/musb-omap2430/musb-hdrc/usb1     /storage/usbdisk0   auto    defaults    voldmanaged=usbdisk0:auto
+/devices/platform/omap/omap_hsmmc.1/mmc_host/mmc0		/storage/sdcard0		vfat		defaults		voldmanaged=sdcard0:11,nonremovable
+/devices/platform/omap/omap_hsmmc.0/mmc_host/mmc1		/storage/sdcard1		auto		defaults		voldmanaged=sdcard1:auto
+/devices/platform/omap/musb-omap2430/musb-hdrc/usb1		/storage/usbdisk0		auto		defaults		voldmanaged=usbdisk0:auto
 
 # recovery
-/dev/block/mmcblk0p5                                    /boot               emmc    defaults    recoveryonly
-/dev/block/mmcblk0p6                                    /recovery           emmc    defaults    recoveryonly
-/dev/block/mmcblk0p11                                   /emmc               auto    defaults    recoveryonly
-/dev/block/mmcblk1p1                                    /sdcard             auto    defaults    recoveryonly
+/dev/block/mmcblk0p5		/boot				emmc		defaults		recoveryonly
+/dev/block/mmcblk0p6		/recovery			emmc		defaults		recoveryonly
+/dev/block/mmcblk0p11		/emmc				auto		defaults		recoveryonly
+/dev/block/mmcblk1p1		/sdcard				auto		defaults		recoveryonly
