@@ -103,7 +103,8 @@ BOARD_SEPOLICY_UNION := \
 	file.te \
 	device.te \
 	domain.te \
-	pvrsrvinit.te
+	pvrsrvinit.te \
+	rild.te
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
