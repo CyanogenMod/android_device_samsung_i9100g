@@ -1,0 +1,2 @@
+allow rild self:netlink_socket { create bind read write };
+allow rild self:netlink_route_socket { write };
