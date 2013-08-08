@@ -15,9 +15,12 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Galaxy S II-asetukset</string>
+    <string name="defaults_button">Palauta oletusasetukset</string>
 
     <string name="category_screen_title">Näyttö</string>
     <string name="screen_colors_title">Värit</string>
+    <string name="cabc_title_head">CABC</string>
+    <string name="cabc_summary_head">Ota sisältöön mukautuva taustavalon kirkkaus käyttöön</string>
     <string name="panel_gamma_title_head">Näytön gamma</string>
     <string name="panel_gamma_summary_head">Säädä näytön gamma-arvo</string>
 
@@ -26,6 +29,8 @@
     <string name="touchscreen_sensitivity_summary_head">Säädä näytön herkkyyttä</string>
 
     <string name="touchkey_subcat_title">Kosketusnäppäimet</string>
+    <string name="touchkey_led_mode_title">Taustavalon sytyttäminen</string>
+    <string name="touchkey_led_mode_summary">Valitse alue/alueet, jotka sytyttävät kosketusnäppäinten taustavalon kosketuksesta</string> 
     <string name="touchkey_timeout_title_head">Taustavalon aikakatkaisu</string>
     <string name="touchkey_timeout_summary_head">Säädä taustavalon sammumisen aikaväliä kosketuksesta</string>
 
@@ -39,6 +44,11 @@
     <string name="accelerometer_dialog_message">Sensori kalibroitu onnistuneesti</string>
 
     <string name="category_haptic_title">Haptinen</string>
+
+    <string name="vibrator_title">Värinä</string>
+    <string name="vibrator_tuning_title">Värinän voimakkuus</string>
+    <string name="vibrator_tuning_summary_head">Säädä värinän voimakkuutta</string>
+    <string name="vibrator_warning">Arvoja jotka ylittävät %1$d ei suositella</string>
 
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>

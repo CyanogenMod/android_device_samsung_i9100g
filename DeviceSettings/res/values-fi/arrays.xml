@@ -31,13 +31,19 @@
     </string-array>
 
     <string-array name="touchkey_timeout_entries">
-        <item>Never</item>
-        <item>1 second</item>
-        <item>2 seconds</item>
-        <item>3 seconds (Oletus)</item>
-        <item>4 seconds</item>
-        <item>5 seconds</item>
-        <item>6 seconds</item>
+        <item>Ei koskaan</item>
+        <item>1 sekunti</item>
+        <item>2 sekuntia</item>
+        <item>3 sekuntia (Oletus)</item>
+        <item>4 sekuntia</item>
+        <item>5 sekuntia</item>
+        <item>6 sekuntia</item>
+    </string-array>
+
+    <string-array name="touchkey_led_mode_entries">
+        <item>Pois käytöstä (taustavalo pois)</item>
+        <item>Vain kosketusnäppäimet</item>
+        <item>Kosketusnäppäimet ja -näyttö</item>
     </string-array>
 
     <string-array name="hspa_entries">
