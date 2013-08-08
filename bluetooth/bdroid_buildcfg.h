@@ -19,4 +19,8 @@
 
 #define BTM_DEF_LOCAL_NAME   "GT-I9100G"
 
+#define BLE_INCLUDED TRUE
+#define BTA_GATT_INCLUDED TRUE
+#define SMP_INCLUDED TRUE
+
 #endif
