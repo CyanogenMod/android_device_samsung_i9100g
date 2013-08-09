@@ -60,7 +60,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.primary.t1 \
     camera.t1 \
-    GalaxyS2Settings \
     hwcomposer.t1 \
     lights.t1 \
     power.t1 \
