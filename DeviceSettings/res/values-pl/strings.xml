@@ -39,8 +39,6 @@
     <string name="accelerometer_dialog_head">Skalibrowano</string>
     <string name="accelerometer_dialog_message">Akcelerometr został poprawnie skalibrowany.</string>
 
-    <string name="category_haptic_title">Dotyk</string>
-
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Aktywuj HSDPA/HSUPA</string>

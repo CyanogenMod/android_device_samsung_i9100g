@@ -41,12 +41,6 @@
     <string name="accelerometer_dialog_head">Kalibrierung beendet</string>
     <string name="accelerometer_dialog_message">Der Beschleunigungssensor wurde kalibriert</string>
 
-    <string name="category_haptic_title">Haptik</string>
-    <string name="vibrator_title">Vibrator</string>
-    <string name="vibrator_tuning_title">Vibrationsstärke</string>
-    <string name="vibrator_tuning_summary_head">Stärke des Vibrationseffektes einstellen</string>
-    <string name="vibrator_warning">Vorsicht: Höhere Werte als %1$d werden nicht empfohlen</string>
-
     <string name="category_radio_title">Mobilfunk</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">HSDPA/HSUPA an/aus</string>

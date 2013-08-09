@@ -41,12 +41,6 @@
     <string name="accelerometer_dialog_head">Calibrazione effettuata</string>
     <string name="accelerometer_dialog_message">Il sensore è stato correttamente calibrato.</string>
 
-    <string name="category_haptic_title">Aptico</string>
-    <string name="vibrator_title">Vibrazione</string>
-    <string name="vibrator_tuning_title">Intensità vibrazione</string>
-    <string name="vibrator_tuning_summary_head">Modifica l\'intensità della vibrazione del feedback aptico</string>
-    <string name="vibrator_warning">Valori superiori a %1$d non sono raccomandati</string>
-
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Abilita HSDPA/HSUPA</string>

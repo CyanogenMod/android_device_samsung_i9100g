@@ -37,11 +37,6 @@
     <string name="accelerometer_calibrate_summary_head">Položte telefon na rovný povrch a stiskněte toto tlačítko pro provedení kalibrace</string>
     <string name="accelerometer_dialog_head">Kalibrace provedena</string>
     <string name="accelerometer_dialog_message">Akcelerometr byl úspěšně zkalibrován.</string>
-    <string name="category_haptic_title">Hmatová odezva</string>
-    <string name="vibrator_title">Vibrace</string>
-    <string name="vibrator_tuning_title">Síla vibrace</string>
-    <string name="vibrator_tuning_summary_head">Upravení síly vibrací zpětné vazby</string>
-    <string name="vibrator_warning">Hodnoty větší než %1$d nejsou doporučovány</string>
     <string name="category_radio_title">Rádio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Povolit HSDPA/HSUPA</string>

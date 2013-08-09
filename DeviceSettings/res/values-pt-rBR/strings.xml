@@ -35,12 +35,6 @@
     <string name="touchkey_timeout_title_head">Tempo limite da luz de fundo</string>
     <string name="touchkey_timeout_summary_head">Quanto tempo a luz de fundo irá ficar acesa depois do botão ser pressionado</string>
 
-    <string name="category_haptic_title">Resposta Tátil</string>
-    <string name="vibrator_title">Vibração</string>
-    <string name="vibrator_tuning_title">Intensidade da vibração</string>
-    <string name="vibrator_tuning_summary_head">Ajusar a intensidade da resposta por vibração</string>
-    <string name="vibrator_warning">Valores maiores que %1$d não são recomendados</string>
-
     <string name="accelerometer_subcat_title">Acelerômetro</string>
     <string name="accelerometer_calibration_title_head">Usar dados de calibragem</string>
     <string name="accelerometer_calibration_summary_head">Usa os valores dos dados de calibragem. Calibre após marcar isto!</string>

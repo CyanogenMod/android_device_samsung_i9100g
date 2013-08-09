@@ -52,16 +52,6 @@
     <string name="accelerometer_dialog_head">Calibration done</string>
     <string name="accelerometer_dialog_message">The sensor has been successfully calibrated.</string>
 
-    <!-- Haptic Preference -->
-    <string name="category_haptic_title">Haptic</string>
-
-
-    <!-- Vibrator Tuning -->
-    <string name="vibrator_title">Vibrator</string>
-    <string name="vibrator_tuning_title">Vibration strength</string>
-    <string name="vibrator_tuning_summary_head">Adjust the strength of the vibration feedback</string>
-    <string name="vibrator_warning">Values higher than %1$d are not recommended</string>
-
     <!-- Radio Preference -->
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>

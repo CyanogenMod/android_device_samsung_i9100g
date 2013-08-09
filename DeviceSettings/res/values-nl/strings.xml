@@ -46,12 +46,6 @@
     <string name="accelerometer_dialog_head">Kalibratie afgerond</string>
     <string name="accelerometer_dialog_message">De sensor is succesvol gekalibreerd.</string>
 
-    <string name="category_haptic_title">Trillen</string>
-    <string name="vibrator_title">Trilapparaat</string>
-    <string name="vibrator_tuning_title">Trilintensiteit</string>
-    <string name="vibrator_tuning_summary_head">Trilintensiteit instellen</string>
-    <string name="vibrator_warning">Waarden hoger dan %1$d worden niet aangeraden</string>
-
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">HSDPA/HSUPA inschakelen</string>

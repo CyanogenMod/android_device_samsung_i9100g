@@ -39,8 +39,6 @@
     <string name="accelerometer_dialog_head">Kalibrálás befejezve</string>
     <string name="accelerometer_dialog_message">Az érzékelő sikeresen bekalibrálva.</string>
 
-    <string name="category_haptic_title">Érintési visszajelzés</string>
-
     <string name="category_radio_title">GSM Rádió</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">HSDPA/HSUPA engedélyezése</string>
