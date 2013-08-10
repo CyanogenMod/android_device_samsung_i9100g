@@ -220,10 +220,19 @@ on boot
     chown system system /sys/devices/platform/omapdss/overlay0/enabled
 
 # Vibrator
-    chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
-    chown system system /sys/vibrator/pwmvalue
-    chmod 0660 /sys/vibrator/pwmvalue
+    chmod 0660 /dev/tspdrv
+
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_max
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_max
+    chown system system /sys/class/timed_output/vibrator/pwm_min
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_min
+    chown system system /sys/class/timed_output/vibrator/pwm_default
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_default
+    chown system system /sys/class/timed_output/vibrator/pwm_threshold
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_threshold
 
 # Change permission for LCD
     chown system radio /sys/class/lcd/panel/lcd_type
