@@ -21,8 +21,9 @@
 # Sensors
 /dev/akm8975                                u:object_r:sensors_device:s0
 
-# for wpa_supp
+# Wifi
 /dev/rfkill                                 u:object_r:rfkill_device:s0
+/efs/wifi/.mac.info                         u:object_r:wifi_data_file:s0
 
 # System binaries
 /system/vendor/bin/pvrsrvinit               u:object_r:pvrsrvinit_exec:s0
