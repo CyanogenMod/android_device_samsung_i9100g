@@ -107,7 +107,8 @@ BOARD_SEPOLICY_UNION := \
 	device.te \
 	domain.te \
 	pvrsrvinit.te \
-	rild.te
+	rild.te \
+    wpa_supplicant.te
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"

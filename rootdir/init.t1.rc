@@ -42,6 +42,7 @@ on fs
     restorecon /efs/FactoryApp/keystr
     restorecon /efs/FactoryApp/serial_no
     restorecon /efs/imei/mps_code.dat
+    restorecon /efs/wifi/.mac.info
 
 # pvr module
     insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
