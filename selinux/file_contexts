@@ -11,14 +11,9 @@
 
 /dev/block/mmcblk0p7                        u:object_r:efs_block_device:s0
 
-/efs/bluetooth/(/.*)?                       u:object_r:bluetooth_efs_file:s0
-/efs/imei/mps_code.dat                      u:object_r:radio_data_file:s0
-/efs/nv_data.bin                            u:object_r:radio_data_file:s0
-/efs/nv_data.bin.md5                        u:object_r:radio_data_file:s0
-/efs/upgaddr                                u:object_r:efs_file:s0
-
 # Bluetooth
 /dev/ttyO1                                  u:object_r:hci_attach_dev:s0
+/efs/bluetooth/(/.*)?                       u:object_r:bluetooth_efs_file:s0
 
 # GPS
 /dev/ttyO0                                  u:object_r:gps_device:s0

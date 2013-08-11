@@ -10,3 +10,4 @@ allow pvrsrvinit system_file:file x_file_perms;
 allow pvrsrvinit shell_exec:file rx_file_perms;
 allow pvrsrvinit pvrsrvinit_exec:file rx_file_perms;
 allow pvrsrvinit property_socket:sock_file write;
+allow pvrsrvinit init:unix_stream_socket connectto;
