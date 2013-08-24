@@ -41,7 +41,6 @@ TARGET_KERNEL_CONFIG := cyanogenmod_i9100g_defconfig
 # Init
 TARGET_PROVIDES_INIT := true
 TARGET_PROVIDES_INIT_TARGET_RC := true
-TARGET_RECOVERY_INITRC := device/samsung/i9100g/rootdir/recovery.rc
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
