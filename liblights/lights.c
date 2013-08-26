@@ -33,9 +33,7 @@ static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
 char const *const LCD_FILE = "/sys/class/backlight/panel/brightness";
-
-char const *const BUTTON_POWER = "/sys/class/sec/sec_touchkey/enable_disable";
-char const *const BUTTON_NOTIFICATION = "/sys/class/sec/sec_touchkey/notification";
+char const *const BUTTON_FILE = "/sys/class/sec/sec_touchkey/brightness";
 
 void init_g_lock(void)
 {
@@ -95,35 +93,31 @@ static int rgb_to_brightness(struct light_state_t const *state)
 		+ (150*((color>>8) & 0x00ff)) + (29*(color & 0x00ff))) >> 8;
 }
 
+/* Panel backlight */
 static int set_light_backlight(struct light_device_t *dev,
 			struct light_state_t const *state)
 {
 	int err = 0;
 	int brightness = rgb_to_brightness(state);
-    int previous_brightness = read_int(LCD_FILE);
 
 	pthread_mutex_lock(&g_lock);
     ALOGD("set_light_backlight brightness=%d\n", brightness);
 	err = write_int(LCD_FILE, brightness);
-
-    if (!previous_brightness && (brightness > 0)) {
-        err = write_int(BUTTON_POWER, brightness > 0 ? 1 : 0);
-    }
-
 	pthread_mutex_unlock(&g_lock);
+
 	return err;
 }
 
-static int
-set_light_notification(struct light_device_t* dev,
+/* Touchkey backlight */
+static int set_light_buttons(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
-    int on = is_lit(state);
+    int brightness = rgb_to_brightness(state);
 
     pthread_mutex_lock(&g_lock);
-    ALOGD("set_light_notification on=%d\n", on ? 1 : 0);
-    err = write_int(BUTTON_NOTIFICATION, on ? 1 : 0);
+    ALOGD("set_light_buttons: %d\n", brightness > 0 ? 1 : 2);
+    err = write_int(BUTTON_FILE, brightness > 0 ? 1 : 2);
     pthread_mutex_unlock(&g_lock);
 
     return err;
@@ -131,7 +125,7 @@ set_light_notification(struct light_device_t* dev,
 
 static int close_lights(struct light_device_t *dev)
 {
-	ALOGV("close_light is called");
+	ALOGV("close_lights is called");
 	if (dev)
 		free(dev);
 
@@ -146,8 +140,8 @@ static int open_lights(const struct hw_module_t *module, char const *name,
 
 	if (0 == strcmp(LIGHT_ID_BACKLIGHT, name))
 		set_light = set_light_backlight;
-	else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
-		set_light = set_light_notification;
+	else if (0 == strcmp(LIGHT_ID_BUTTONS, name))
+		set_light = set_light_buttons;
 	else
 		return -EINVAL;
 

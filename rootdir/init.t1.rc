@@ -170,23 +170,14 @@ on boot
     chmod 0660 /sys/class/sec/melfas_touchkey/brightness
     
 # Change permissions for touchkeys
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_menu
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_back
-    chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update_status
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_brightness
-
-    chown system system /sys/class/sec/sec_touchkey/enable_disable
-    chmod 0660 /sys/class/sec/sec_touchkey/enable_disable
-    chown system system /sys/class/sec/sec_touchkey/led_mode
-    chmod 0660 /sys/class/sec/sec_touchkey/led_mode
-    chown system system /sys/class/sec/sec_touchkey/notification
-    chmod 0660 /sys/class/sec/sec_touchkey/notification
-    chown system system /sys/class/sec/sec_touchkey/timeout
-    chmod 0660 /sys/class/sec/sec_touchkey/timeout
+    chown system radio /sys/class/sec/sec_touchkey/brightness
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_menu
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_back
+    chown system radio /sys/class/sec/sec_touchkey/touch_sensitivity
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update_status
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update
 
 # Permissions for dvfs lock
     chown radio system /sys/power/cpufreq_min_limit
