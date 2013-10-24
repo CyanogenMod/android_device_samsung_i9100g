@@ -208,4 +208,7 @@
 
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
+
+    <!-- LED Flashlight -->
+    <bool name="config_enableTorch">true</bool>
 </resources>
