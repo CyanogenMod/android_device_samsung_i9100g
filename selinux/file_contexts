@@ -1,6 +1,6 @@
 # GFX
 /dev/dsscomp                                u:object_r:video_device:s0
-/dev/pvrsrvkm                               u:object_r:powervr_device:s0
+#/dev/pvrsrvkm                               u:object_r:powervr_device:s0
 
 # RIL
 /dev/umts_boot0                             u:object_r:radio_device:s0
