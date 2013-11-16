@@ -1,3 +1,2 @@
 type efs_block_device, dev_type;
-type powervr_device, dev_type, mlstrustedobject;
 type rfkill_device, dev_type;
