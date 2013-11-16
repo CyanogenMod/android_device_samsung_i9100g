@@ -1,5 +1,2 @@
-## Pvrsrvinit
-allow domain powervr_device:chr_file rw_file_perms;
-
 ## Firmwares
 allow ueventd { firmware_ducati }:file r_file_perms;

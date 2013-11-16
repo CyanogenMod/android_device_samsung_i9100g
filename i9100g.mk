@@ -104,7 +104,9 @@ PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=131072
+    ro.opengles.version=131072  \
+    ro.zygote.disable_gl_preload=1 \
+    ro.bq.gpu_to_cpu_unsupported=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
