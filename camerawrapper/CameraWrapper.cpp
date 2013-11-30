@@ -135,7 +135,7 @@ char * camera_fixup_setparams(int id, const char * settings)
             params.set(android::CameraParameters::KEY_ISO_MODE, "800");
     }
 
-   if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
+    if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
         isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
     }
 

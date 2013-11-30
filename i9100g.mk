@@ -107,7 +107,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240
+    ro.sf.lcd_density=240 \
+    dalvik.vm.dexopt-data-only=1
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
