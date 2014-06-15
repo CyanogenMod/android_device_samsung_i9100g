@@ -27,6 +27,9 @@ on init
 on fs
     mount_all /fstab.t1
 
+# Preload libjhead for camera
+    export LD_PRELOAD /system/lib/libjhead.so
+    
 # We chown/chmod /efs because mount is run as root + defaults
     chown radio system /efs
     chmod 0775 /efs
