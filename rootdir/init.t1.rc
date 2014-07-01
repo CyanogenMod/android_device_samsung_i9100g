@@ -22,6 +22,9 @@ on init
     symlink /storage/usbdisk0 /usbdisk0
     symlink /storage/usbdisk0 /mnt/usbdisk0
 
+    # Preload libjhead for camera
+    export LD_PRELOAD /system/lib/libjhead.so
+
     chmod 0666 /dev/pvrsrvkm
 
 on fs
