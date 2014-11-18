@@ -61,7 +61,8 @@ def WriteFullOTAPackage(input_zip, output_zip):
       metadata=metadata,
       info_dict=OPTIONS.info_dict)
 
-  AppendAssertions(script, input_zip)
+  system_items = ItemSet("system", "META/filesystem_config.txt")
+  AppendAssertions(script, device_specific.info_dict)
   device_specific.FullOTA_Assertions()
   if OPTIONS.backuptool:
     script.Mount("/system")
@@ -72,20 +73,20 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   if OPTIONS.wipe_user_data:
     script.FormatPartition("/data")
+    script.Unmount("/system")
 
-  script.Unmount("/system")
   script.FormatPartition("/system")
   script.Mount("/system")
   script.UnpackPackageDir("recovery", "/system")
   script.UnpackPackageDir("system", "/system")
 
-  symlinks = CopySystemFiles(input_zip, output_zip)
+  symlinks = CopyPartitionFiles(system_items, input_zip, output_zip)
   script.MakeSymlinks(symlinks)
 
   CopyBootFiles(input_zip, output_zip)
 
-  Item.GetMetadata(input_zip)
-  Item.Get("system").SetPermissions(script)
+  system_items.GetMetadata(input_zip)
+  system_items.Get("system").SetPermissions(script)
 
   script.ShowProgress(0.2, 0)
 
@@ -103,7 +104,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
     script.AppendExtra(OPTIONS.extra_script)
 
   script.UnmountAll()
-  script.AddToZip(input_zip, output_zip)
+  script.AddToZip(input_zip, output_zip, input_path=OPTIONS.updater_binary)
   WriteMetadata(metadata, output_zip)
 ota_from_target_files.WriteFullOTAPackage = WriteFullOTAPackage
 
