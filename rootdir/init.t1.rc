@@ -353,7 +353,7 @@ on property:ril.modem.lte.powercontrol=*
     write /sys/bus/usb/devices/1-1/power/control $ril.modem.lte.powercontrol
 
 # initialize the SGX driver
-service pvrsrvinit /system/vendor/bin/pvrsrvinit
+service pvrsrvinit /system/bin/pvrsrvinit
     class core
     user root
     group root
