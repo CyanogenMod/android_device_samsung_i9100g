@@ -26,7 +26,7 @@
 /efs/wifi/.mac.info                         u:object_r:wifi_data_file:s0
 
 # System binaries
-/system/vendor/bin/pvrsrvinit               u:object_r:pvrsrvinit_exec:s0
+/system/bin/pvrsrvinit               u:object_r:pvrsrvinit_exec:s0
 /system/vendor/bin/pvrsrvctl_SGX540_120     u:object_r:pvrsrvinit_exec:s0
 
 # Firmwares
