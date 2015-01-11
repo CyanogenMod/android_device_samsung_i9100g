@@ -15,9 +15,9 @@ system/etc/wifi/nvram_mfg.txt
 system/etc/wifi/nvram_mfg.txt_murata
 system/etc/wifi/nvram_net.txt
 system/etc/wifi/nvram_net.txt_murata
+system/lib/hw/camera.vendor.t1.so
 system/lib/hw/gps.omap4.so
 system/lib/hw/sensors.omap4.so
-system/lib/hw/vendor-camera.t1.so
 system/lib/libI420colorconvert.so
 system/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so
 system/lib/libOMX.TI.DUCATI1.VIDEO.CAMERA.so
@@ -38,13 +38,13 @@ system/lib/libmlplatform.so
 system/lib/libmm_osal.so
 system/lib/libmpl.so
 system/lib/libomission_avoidance.so
-system/lib/libsec-ril.so
 system/lib/libsecnativefeature.so
 system/lib/libsecril-client.so
+system/lib/libsec-ril.so
 system/lib/libtiutils.so
-system/lib/libtvout_jni.so
 system/lib/libtvoutinterface.so
 system/lib/libtvoutservice.so
+system/lib/libtvout_jni.so
 system/media/Disconnected.qmg
 system/media/LMprec_508.emd
 system/media/PFFprec_600.emd
